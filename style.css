@@ -26,12 +26,12 @@ body {
 #splash-video { width: 100%; height: auto; mix-blend-mode: screen; }
 .hidden-out { opacity: 0 !important; pointer-events: none !important; transition: opacity 0.8s ease; }
 
-/* Landing Page with Hero Backdrop */
+/* Landing Page with PNG Hero Backdrop */
 #landing-page {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    /* Updated to check for both jpg and png possibilities */
-    background-image: url('assets/landing-hero.jpg'), url('assets/landing-hero.png'), linear-gradient(black, black);
+    /* Explicitly looking for your PNG file */
+    background-image: url('assets/landing-hero.png');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -41,27 +41,33 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.75); 
+    background: rgba(0, 0, 0, 0.7); /* Professional darkened overlay */
     z-index: 1;
 }
-.landing-content { position: relative; z-index: 2; text-align: center; }
+.landing-content { position: relative; z-index: 2; text-align: center; width: 100%; }
 .hidden-landing { opacity: 0; pointer-events: none; }
 
 .landing-logo {
-    width: 130px; 
+    width: 140px; 
     height: auto; 
-    border-radius: 12px;
-    margin-bottom: 25px;
+    border-radius: 50%; /* Keeping the logo round, but removing the ring */
+    margin-bottom: 30px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
 .welcome-text {
     font-family: 'Syncopate', sans-serif;
     font-size: 1.1rem;
-    letter-spacing: 3px;
+    letter-spacing: 4px;
     color: var(--nls-gold);
     margin-bottom: 40px;
 }
-.kickoff-image { width: 220px; cursor: pointer; transition: transform 0.2s; }
+.kickoff-image { 
+    width: 240px; 
+    cursor: pointer; 
+    transition: transform 0.2s; 
+    margin: 0 auto;
+}
 .kickoff-image:active { transform: scale(0.95); }
 
 /* Main App Layout */
