@@ -47,22 +47,14 @@ body {
 
 #main-content { padding: 30px 20px 120px 20px; }
 
-/* Poll & Fixture Cards */
-.poll-card, .next-fixture-card {
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
-.poll-card {
-    background: #1a1a1a;
-    border: 1px solid var(--nls-gold);
-}
-
+/* Fixture Highlight */
 .next-fixture-card {
     background: linear-gradient(135deg, #E1C03B, #b89a2b);
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 30px;
     color: black;
+    position: relative;
 }
 
 .highlight-tag {
@@ -100,22 +92,7 @@ body {
     margin: 10px 0;
 }
 
-/* Match Center Actions */
-.portal-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 15px;
-}
-
-.calendar-btn {
-    font-size: 0.65rem;
-    color: var(--nls-gold);
-    text-decoration: underline;
-    font-weight: 700;
-    align-self: center;
-}
-
-/* General Layout Elements */
+/* UI Structure */
 .pathway-card, .event-card, .news-card, .league-portal-card, .mission-statement-card {
     background: var(--nls-grey);
     border-radius: 12px;
@@ -138,7 +115,9 @@ body {
 
 .btn-fixture { background: black; color: white; margin-top: 10px; }
 
-/* Bottom Nav */
+.portal-actions { margin-top: 10px; }
+
+/* Navigation */
 .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; width: 100%; height: 80px;
@@ -159,6 +138,7 @@ body {
     text-align: center;
 }
 
-.nav-item.active { color: var(--nls-gold); font-size: 0.6rem; }
+.nav-item.active { color: var(--nls-gold); }
 
 .social-grid img { width: 30px; height: auto; }
+.gdpr-notice { font-size: 0.6rem; color: #444; margin-top: 30px; text-align: center; }
