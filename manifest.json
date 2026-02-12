@@ -1,0 +1,21 @@
+{
+  "name": "New Levels Soccer",
+  "short_name": "NLS App",
+  "description": "Official App for the NLS Group",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#E1C03B",
+  "icons": [
+    {
+      "src": "assets/NLS Logo.jpeg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "assets/NLS Logo.jpeg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
