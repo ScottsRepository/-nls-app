@@ -28,31 +28,35 @@ h1, h2, h3, .brand-header {
 
 .white-text { color: var(--text-white) !important; }
 
-/* Fixed Centered Splash Screen */
+/* Install Banner Style */
+#install-banner {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #000;
+    border-bottom: 2px solid var(--nls-gold);
+    color: var(--nls-gold);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 11000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Perfect Centring for Splash */
 #splash-overlay {
     position: fixed;
-    top: 0; left: 0; 
-    width: 100vw; height: 100vh;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background: var(--nls-black);
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
+    display: flex; justify-content: center; align-items: center;
     z-index: 10000;
     transition: opacity 0.8s ease;
 }
 
-.video-wrapper {
-    width: 90%;
-    max-width: 400px;
-}
-
-#splash-video {
-    width: 100%;
-    height: auto;
-    display: block;
-    mix-blend-mode: screen;
-}
-
+.video-wrapper { width: 90%; max-width: 400px; }
+#splash-video { width: 100%; height: auto; mix-blend-mode: screen; }
 .hidden-out { opacity: 0 !important; pointer-events: none !important; }
 
 /* Landing Page */
@@ -64,17 +68,16 @@ h1, h2, h3, .brand-header {
     background-size: cover;
     display: flex; justify-content: center; align-items: center;
     z-index: 9000;
-    transition: opacity 0.8s ease;
 }
 
 .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
 .landing-content { position: relative; z-index: 2; text-align: center; }
-.hidden-landing { opacity: 0; pointer-events: none; }
 .landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
 .welcome-text { font-size: 1.1rem; margin-bottom: 40px; }
 .kickoff-image { width: 220px; cursor: pointer; }
+.hidden-landing { opacity: 0; pointer-events: none; }
 
-/* General Layout */
+/* Hub & Media Styling */
 #main-content { padding: 30px 20px 140px 20px; }
 .brand-header { font-size: 1.2rem; border-bottom: 2px solid var(--nls-gold); margin-bottom: 25px; display: inline-block; }
 
@@ -85,19 +88,14 @@ h1, h2, h3, .brand-header {
     margin-bottom: 20px;
 }
 
-.league-tag { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; color: var(--nls-gold); text-transform: uppercase; display: block; margin-bottom: 10px; }
+.media-placeholder { text-align: center; border: 1px dashed #444; padding: 40px 20px; }
+.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold); font-size: 1.1rem; margin: 10px 0; }
 
-/* Hub Layout */
 .hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold); }
 .hub-button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.hub-button-grid .btn-gold-small { width: 100%; font-size: 0.55rem; padding: 12px 5px; margin-top: 0; text-align: center; }
 
-/* Match Day Centre UK */
-.score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: black; }
-.logo-divider-simple { text-align: center; padding: 25px 0; }
-.divider-logo-no-ring { width: 60px; border-radius: 50%; }
-
-/* Buttons & Navigation */
+/* Uniform Buttons */
 .btn-gold-full, .btn-gold-small, .portal-btn, .btn-fixture {
     background: var(--nls-gold);
     color: black;
@@ -109,8 +107,12 @@ h1, h2, h3, .brand-header {
     text-decoration: none;
     display: inline-block;
     width: 100%;
+    text-align: center;
     border: none;
 }
+
+.btn-gold-small { font-size: 0.55rem; padding: 12px 5px; margin-top: 0; }
+.btn-fixture { background: black; color: white; width: auto; margin-top: 15px; }
 
 .btn-read-more {
     display: inline-block;
@@ -124,9 +126,14 @@ h1, h2, h3, .brand-header {
     font-size: 0.8rem;
     border-radius: 6px;
 }
-
 .read-more-wrapper { text-align: center; margin-top: 20px; }
 
+/* Match Day Centre UK */
+.score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: black; }
+.logo-divider-simple { text-align: center; padding: 25px 0; }
+.divider-logo-no-ring { width: 60px; border-radius: 50%; }
+
+/* Navigation */
 .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; width: 100%; height: 85px;
