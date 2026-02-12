@@ -84,7 +84,6 @@
 
         <section id="about" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS Hub</h2>
-            
             <div class="hub-card">
                 <h3>Training & Events</h3>
                 <div class="hub-button-grid">
@@ -93,7 +92,6 @@
                     <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-gold-small">Sign-Up</a>
                 </div>
             </div>
-
             <div class="hub-card">
                 <h3>Pathways</h3>
                 <div class="hub-button-grid">
@@ -102,7 +100,6 @@
                     <a href="https://www.nlsgroup.co.uk/nls-coaches" target="_blank" class="btn-gold-small">Coaches</a>
                 </div>
             </div>
-
             <div class="about-card">
                 <h3>Our Mission</h3>
                 <p>To develop every player who wants to be coached. Supportive. Subjective. Committed.</p>
@@ -110,11 +107,55 @@
                     <a href="https://www.nlsgroup.co.uk/about" target="_blank" class="btn-read-more">Read More Online</a>
                 </div>
             </div>
-
             <div class="partners-container">
                 <img src="assets/NLS%20Partners%20and%20Creds.png" alt="Partners" class="partners-image">
             </div>
         </section>
     </main>
 
-    <nav class="
+    <nav class="bottom-nav" style="display:none;">
+        <div class="nav-item active" onclick="showTab('news')"><span>Results</span></div>
+        <div class="nav-item" onclick="showTab('scores')"><span>Match</span></div>
+        <div class="nav-item" onclick="showTab('videos')"><span>Media</span></div>
+        <div class="nav-item" onclick="showTab('podcasts')"><span>Pods</span></div>
+        <div class="nav-item" onclick="showTab('about')"><span>More</span></div>
+    </nav>
+
+    <script>
+        // Transition Function
+        function hideSplash() {
+            const splash = document.getElementById('splash-overlay');
+            const landing = document.getElementById('landing-page');
+            if (splash && !splash.classList.contains('hidden-out')) {
+                splash.classList.add('hidden-out');
+                if (landing) landing.classList.remove('hidden-landing');
+            }
+        }
+
+        // Event Listener for Video End
+        const video = document.getElementById('splash-video');
+        if (video) {
+            video.addEventListener('ended', hideSplash);
+            // Fallback: If video is stuck or fails to load, force transition after 5 seconds
+            setTimeout(hideSplash, 5000);
+        } else {
+            // If video element is missing, transition immediately
+            hideSplash();
+        }
+
+        function enterApp() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.querySelector('.bottom-nav').style.display = 'flex';
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            const target = document.getElementById(tabId);
+            if(target) target.style.display = 'block';
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
