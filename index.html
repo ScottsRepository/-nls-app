@@ -28,23 +28,32 @@
                 <div class="card-body">
                     <span class="card-date">12 FEB 2026</span>
                     <h3>Official NLS App</h3>
-                    <p>Live JPL schedules and group updates now available in one place.</p>
+                    <p>Welcome to the NLS Group hub. Use the tabs below to find scores, events, and opportunities.</p>
                 </div>
             </div>
         </section>
 
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">Match Center</h2>
+            <p style="margin-bottom: 20px;">Select a league to view live schedules and standings on the official portal.</p>
             
-            <div class="league-switcher">
-                <button class="league-btn active" onclick="loadLeague('warriors')">JPL Warriors</button>
-                <button class="league-btn" onclick="loadLeague('main')">JPL U12-U18</button>
+            <div class="league-portal-card">
+                <div class="portal-info">
+                    <h3>JPL Warriors</h3>
+                    <span>Schedules & Results 2025/26</span>
+                </div>
+                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
             </div>
 
-            <div class="external-feed-container">
-                <iframe id="league-iframe" src="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" frameborder="0"></iframe>
+            <div class="league-portal-card">
+                <div class="portal-info">
+                    <h3>JPL U12 - U18</h3>
+                    <span>Schedules & Results 2025/26</span>
+                </div>
+                <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
             </div>
-            <p class="feed-note">Data provided by GotSport Official Schedules.</p>
+
+            <p class="feed-note">Note: Schedules open in a secure browser window for real-time accuracy.</p>
         </section>
 
         <section id="events" class="content-section" style="display:none;">
@@ -80,27 +89,11 @@
             if (splash) splash.classList.add('hidden');
         }, 4000);
 
-        // Tab Switching Logic
         function showTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             document.getElementById(tabId).style.display = 'block';
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             event.currentTarget.classList.add('active');
-        }
-
-        // League Switcher Logic
-        function loadLeague(type) {
-            var iframe = document.getElementById('league-iframe');
-            var btns = document.querySelectorAll('.league-btn');
-            
-            btns.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-
-            if (type === 'warriors') {
-                iframe.src = "https://system.gotsport.com/org_event/events/46915/schedules?club=28959";
-            } else {
-                iframe.src = "https://system.gotsport.com/org_event/events/48229/schedules?club=28959";
-            }
         }
     </script>
 </body>
