@@ -133,10 +133,15 @@
         let deferredPrompt;
         const installBanner = document.getElementById('install-banner');
 
+        // Check if user is on a mobile device and force show the banner
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            installBanner.style.display = 'flex';
+        }
+
         window.addEventListener('beforeinstallprompt', (e) => {
             e.preventDefault();
             deferredPrompt = e;
-            installBanner.style.display = 'flex';
+            // Native prompt is available (usually Android)
         });
 
         function triggerInstall() {
@@ -146,10 +151,14 @@
                     installBanner.style.display = 'none';
                     deferredPrompt = null;
                 });
+            } else {
+                // iPhone/Manual Fallback Instructions
+                alert("To Install NLS App: Tap the 'Share' icon (square with arrow) at the bottom of Safari and select 'Add to Home Screen'.");
+                installBanner.style.display = 'none';
             }
         }
 
-        // Failsafe Splash Screen Logic
+        // Splash Screen Logic
         function hideSplash() {
             const splash = document.getElementById('splash-overlay');
             const landing = document.getElementById('landing-page');
@@ -162,7 +171,7 @@
         const video = document.getElementById('splash-video');
         if (video) {
             video.addEventListener('ended', hideSplash);
-            setTimeout(hideSplash, 5000); // 5s Failsafe
+            setTimeout(hideSplash, 5000); // Failsafe
         } else {
             hideSplash();
         }
