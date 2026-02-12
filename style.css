@@ -3,7 +3,6 @@
     --nls-black: #000000;
     --nls-grey: #111111;
     --text-white: #FFFFFF;
-    --text-grey: #888888;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -12,7 +11,6 @@ body {
     background-color: var(--nls-black); 
     color: var(--text-white);
     font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
 }
 
 /* Splash Screen */
@@ -22,58 +20,82 @@ body {
     background: var(--nls-black);
     display: flex; justify-content: center; align-items: center;
     z-index: 9999;
-    opacity: 1;
     transition: opacity 1s ease-in-out;
 }
 
-#splash-video {
-    width: 100%;
-    max-width: 600px;
-    mix-blend-mode: screen;
-}
+.hidden { opacity: 0 !important; pointer-events: none !important; }
 
-/* This is the class the JavaScript adds to hide the splash */
-.hidden { 
-    opacity: 0 !important; 
-    pointer-events: none !important; 
-}
+#splash-video { width: 100%; max-width: 600px; mix-blend-mode: screen; }
 
 /* Brand Headers */
 .brand-header {
     font-family: 'Syncopate', sans-serif;
-    font-weight: 700;
     text-transform: uppercase;
-    color: var(--text-white);
-    padding: 10px 0;
-    font-size: 0.9rem;
     letter-spacing: 3px;
-    margin-bottom: 25px;
+    margin-bottom: 20px;
     border-bottom: 2px solid var(--nls-gold);
     display: inline-block;
 }
 
-#main-content {
-    padding: 30px 20px;
-    padding-bottom: 120px;
+#main-content { padding: 30px 20px 120px 20px; }
+
+/* League Switcher Styling */
+.league-switcher {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-/* Cards & Buttons */
-.news-card, .event-card {
+.league-btn {
+    flex: 1;
+    background: #222;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px 5px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.league-btn.active {
+    background: var(--nls-gold);
+    color: black;
+    border-color: var(--nls-gold);
+}
+
+/* Match Center Frame */
+.external-feed-container {
+    width: 100%;
+    height: 550px;
+    background: #fff;
+    border-radius: 8px;
+    border: 2px solid var(--nls-gold);
+    overflow: hidden;
+    position: relative;
+}
+
+#league-iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.feed-note {
+    font-size: 0.65rem;
+    color: #666;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* UI Elements */
+.news-card, .event-card, .gdpr-notice {
     background: var(--nls-grey);
     border-radius: 12px;
-    overflow: hidden;
+    padding: 20px;
     margin-bottom: 25px;
-    padding-bottom: 20px;
 }
-
-.card-image {
-    width: 100%;
-    height: 160px;
-    background-size: cover;
-    background-position: center;
-}
-
-.card-body, .event-card { padding: 20px; }
 
 .btn-gold {
     background: var(--nls-gold);
@@ -83,33 +105,9 @@ body {
     font-family: 'Syncopate', sans-serif;
     font-size: 0.6rem;
     font-weight: 700;
-    display: inline-block;
     border-radius: 4px;
+    display: inline-block;
     text-transform: uppercase;
-}
-
-/* GDPR Styling */
-.gdpr-notice {
-    margin-top: 40px;
-    padding: 20px;
-    background: #080808;
-    border: 1px solid #222;
-    border-radius: 8px;
-}
-
-.gdpr-notice h4 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    color: var(--nls-gold);
-    margin-bottom: 10px;
-}
-
-.gdpr-notice p {
-    font-size: 0.75rem;
-    color: #666;
-    line-height: 1.4;
-    margin-bottom: 10px;
 }
 
 /* Bottom Nav */
