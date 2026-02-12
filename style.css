@@ -26,11 +26,11 @@ body {
 #splash-video { width: 100%; height: auto; mix-blend-mode: screen; }
 .hidden-out { opacity: 0 !important; pointer-events: none !important; transition: opacity 0.8s ease; }
 
-/* Landing Page with PNG Hero Backdrop */
+/* Landing Page with Hero Backdrop (Fixing the file extension) */
 #landing-page {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    /* Explicitly looking for your PNG file */
+    /* This looks for the PNG file you have in your repo assets */
     background-image: url('assets/landing-hero.png');
     background-position: center;
     background-repeat: no-repeat;
@@ -41,18 +41,21 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Professional darkened overlay */
+    background: rgba(0, 0, 0, 0.75); 
     z-index: 1;
 }
-.landing-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+.landing-content { position: relative; z-index: 2; text-align: center; }
 .hidden-landing { opacity: 0; pointer-events: none; }
 
 .landing-logo {
     width: 140px; 
     height: auto; 
-    border-radius: 50%; /* Keeping the logo round, but removing the ring */
+    border-radius: 12px;
     margin-bottom: 30px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    /* Ensuring it sits dead centre */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .welcome-text {
@@ -62,12 +65,7 @@ body {
     color: var(--nls-gold);
     margin-bottom: 40px;
 }
-.kickoff-image { 
-    width: 240px; 
-    cursor: pointer; 
-    transition: transform 0.2s; 
-    margin: 0 auto;
-}
+.kickoff-image { width: 230px; cursor: pointer; transition: transform 0.2s; }
 .kickoff-image:active { transform: scale(0.95); }
 
 /* Main App Layout */
