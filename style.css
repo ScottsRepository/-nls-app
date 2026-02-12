@@ -8,13 +8,13 @@
 html, body { 
     height: 100%; 
     width: 100%; 
-    background-color: #000; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000; /* Absolute black */
+    font-family: sans-serif;
     color: white;
-    overflow-x: hidden; /* Prevents side-scrolling */
+    overflow: hidden;
 }
 
-/* 2. Splash Screen Container - Still fills the whole screen */
+/* 2. Splash Screen Container */
 #splash-overlay {
     position: fixed;
     top: 0;
@@ -23,37 +23,32 @@ html, body {
     height: 100vh;
     background: #000;
     display: flex;
-    justify-content: center; /* Centers video horizontally */
-    align-items: center;     /* Centers video vertically */
+    justify-content: center;
+    align-items: center;
     z-index: 9999;
     transition: opacity 0.8s ease-out;
 }
 
-/* 3. The Video - Now centered with padding */
+/* 3. The Video - Wider and Blended */
 #splash-video {
-    width: 85%;          /* Gives 7.5% padding on each side */
-    max-width: 500px;    /* Prevents it from getting too huge on tablets */
-    height: auto;        /* Keeps the soccer ball round */
+    width: 100%;          /* Stretches to full width to hide side boundaries */
+    max-width: 600px;     /* Still prevents it from being too huge on big screens */
+    height: auto;
     object-fit: contain;
-    display: block;
+    
+    /* This blends the video's black background with the site's black background */
+    mix-blend-mode: screen; 
+    
+    /* Slight brightness adjustment to help the blend if the MP4 is 'off-black' */
+    filter: brightness(1.1) contrast(1.1); 
 }
 
-/* 4. Main App Content Styling */
+/* 4. Main App Content */
 #main-content {
     padding: 20px;
     text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-h1 {
-    margin-top: 40px;
-    font-size: 1.8rem;
-    letter-spacing: 1px;
-}
-
-/* Utility to hide the splash */
 .hidden { 
     opacity: 0; 
     pointer-events: none; 
