@@ -4,32 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>New Levels Soccer</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="splash-overlay">
+
+    <div id="splash-overlay">
         <video id="splash-video" autoplay muted playsinline>
             <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
     </div>
 
     <main id="main-content">
         <section id="news" class="content-section">
-            <h2>Latest Team News</h2>
-            <p>Welcome to New Levels Soccer. Stay tuned for updates!</p>
+            <h2 class="brand-header">Team News</h2>
+            <div class="news-card">
+                <p>Welcome to the New Levels Soccer app. Stay tuned for squad updates and club announcements.</p>
+            </div>
         </section>
 
         <section id="scores" class="content-section" style="display:none;">
-            <h2>Match Scores</h2>
-            <p>No recent scores to display.</p>
+            <h2 class="brand-header">Score Updates</h2>
+            <p>Match results will be posted here after final whistles.</p>
         </section>
 
         <section id="opportunities" class="content-section" style="display:none;">
-            <h2>Squad Opportunities</h2>
-            <p>Current trials and opportunities will appear here.</p>
+            <h2 class="brand-header">Squad Opps</h2>
+            <p>Looking to join NLS? Check here for trial dates and squad opportunities.</p>
         </section>
     </main>
 
@@ -46,21 +52,21 @@
     </nav>
 
     <script>
-        // Splash screen fade out
+        // Splash screen fade out after video finishes (approx 4s)
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('splash-overlay').classList.add('hidden');
             }, 4000); 
         });
 
-        // Tab switching logic
+        // Navigation Engine
         function showTab(tabId) {
             // Hide all sections
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             // Show selected section
             document.getElementById(tabId).style.display = 'block';
             
-            // Update Active Class on Nav
+            // Update Active State in Nav Bar
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             event.currentTarget.classList.add('active');
         }
