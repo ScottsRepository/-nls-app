@@ -8,6 +8,7 @@
     --nls-gold: #E1C03B;
     --nls-black: #000000;
     --nls-grey: #111111;
+    --nls-grey-light: #1a1a1a;
     --text-white: #FFFFFF;
 }
 
@@ -28,8 +29,8 @@ h1, h2, h3, .brand-header {
 
 .white-text { color: var(--text-white) !important; }
 
-/* Splash & Landing */
-#splash-overlay, #landing-page {
+/* Fixed Splash Screen Alignment */
+#splash-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
     background: var(--nls-black);
@@ -37,17 +38,37 @@ h1, h2, h3, .brand-header {
     z-index: 10000;
 }
 
+.video-constrain {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#splash-video {
+    max-width: 400px;
+    width: 90%;
+    height: auto;
+    mix-blend-mode: screen;
+}
+
+.hidden-out { opacity: 0 !important; pointer-events: none !important; transition: opacity 0.8s ease; }
+
+/* Landing Page */
 #landing-page {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
     background-image: url('assets/landing-hero.png');
     background-position: center;
     background-size: cover;
+    display: flex; justify-content: center; align-items: center;
     z-index: 9000;
 }
 
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.75); 
+    background: rgba(0, 0, 0, 0.7); 
     z-index: 1;
 }
 
@@ -56,53 +77,54 @@ h1, h2, h3, .brand-header {
 .landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
 .welcome-text { font-size: 1.1rem; margin-bottom: 40px; }
 .kickoff-image { width: 220px; cursor: pointer; }
-.hidden-out { opacity: 0 !important; pointer-events: none !important; transition: opacity 0.8s ease; }
 
-/* News / Scoreboard Layout */
-.league-group {
+/* Premium Result Cards */
+.result-card-premium {
     background: var(--nls-grey);
     border-radius: 12px;
-    padding: 15px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--nls-gold);
+}
+
+.league-tag { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; color: var(--nls-gold); text-transform: uppercase; display: block; margin-bottom: 10px; }
+.score-row { display: flex; justify-content: space-between; align-items: center; }
+.team { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem; flex: 1; }
+.score { font-family: 'NLS-Brand', sans-serif; color: var(--nls-gold); font-size: 1.1rem; padding: 0 15px; }
+
+/* Uniform About Cards */
+.about-card, .event-card-standard, .pathway-card-premium {
+    background: var(--nls-grey);
+    padding: 25px;
+    border-radius: 12px;
     margin-bottom: 20px;
+    text-align: left;
 }
 
-.feed-label {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
+.about-card h3 { color: var(--nls-gold); font-size: 1rem; margin-bottom: 10px; }
+.about-card p { font-size: 0.85rem; line-height: 1.6; color: #ccc; }
+
+.read-more-wrapper { text-align: center; margin-top: 30px; }
+.btn-read-more {
+    display: inline-block;
+    border: 2px solid var(--nls-gold);
     color: var(--nls-gold);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'NLS-Brand', sans-serif;
+    font-weight: 900;
     text-transform: uppercase;
-    margin-bottom: 12px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
+    font-size: 0.8rem;
+    border-radius: 6px;
 }
 
-.result-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px 0;
-    border-bottom: 1px solid #222;
-}
-
-.result-row:last-child { border-bottom: none; }
-
-.team-label { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; color: #bbb; }
-.score-line { font-family: 'Open Sans', sans-serif; font-size: 0.75rem; font-weight: 600; }
-.update-notice { font-size: 0.6rem; color: #555; text-align: center; margin-bottom: 20px; }
-
-/* Rest of App Styling */
-#main-content { padding: 30px 20px 140px 20px; }
-.brand-header { font-size: 1.2rem; border-bottom: 2px solid var(--nls-gold); margin-bottom: 25px; display: inline-block; }
-
+/* Scores Section UK Refinement */
 .score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: black; }
-.logo-divider { text-align: center; padding: 20px 0; }
-.divider-logo { width: 60px; border-radius: 50%; border: 2px solid var(--nls-gold); }
+.logo-divider-simple { text-align: center; padding: 25px 0; }
+.divider-logo-no-ring { width: 60px; border-radius: 50%; }
 
-.news-card, .pathway-card, .mission-statement-card, .event-card { background: var(--nls-grey); padding: 25px; border-radius: 12px; margin-bottom: 20px; }
-.next-fixture-card { background: linear-gradient(135deg, #E1C03B, #b89a2b); padding: 25px; border-radius: 12px; margin-bottom: 30px; color: black; }
-
-.button-group { display: flex; gap: 10px; margin-top: 20px; }
-
-.btn-gold, .portal-btn, .btn-fixture, .btn-black {
+/* Buttons & Navigation */
+.btn-gold-full, .btn-gold-small, .portal-btn, .btn-fixture {
     background: var(--nls-gold);
     color: black;
     padding: 12px 20px;
@@ -112,14 +134,25 @@ h1, h2, h3, .brand-header {
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
-    border: none;
+    margin-top: 15px;
+    width: 100%;
+    text-align: center;
 }
 
-.btn-black { background: black; color: white; }
-.btn-fixture { background: black; color: white; margin-top: 15px; }
-.btn-outline { background: transparent; border: 1px solid var(--nls-gold); color: var(--nls-gold); padding: 10px 18px; text-transform: uppercase; font-family: 'NLS-Brand', sans-serif; font-size: 0.6rem; border-radius: 6px; text-decoration: none; }
+.btn-gold-small { width: auto; padding: 8px 15px; font-size: 0.6rem; }
+.btn-fixture { background: black; color: white; width: auto; }
 
-.bottom-nav { position: fixed; bottom: 0; left: 0; width: 100%; height: 85px; background: rgba(10, 10, 10, 0.9); backdrop-filter: blur(15px); display: flex; justify-content: space-around; align-items: center; border-top: 1px solid rgba(255, 255, 255, 0.1); z-index: 1000; }
-.nav-item { font-family: 'Montserrat', sans-serif; color: #666; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; text-align: center; }
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%; height: 85px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex; justify-content: space-around; align-items: center;
+    border-top: 1px solid #333;
+    z-index: 1000;
+}
+
+.nav-item { font-family: 'Montserrat', sans-serif; color: #555; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; text-align: center; }
 .nav-item.active { color: var(--nls-gold); }
-.partners-image { max-width: 280px; width: 100%; margin: 20px auto; display: block; }
+.next-fixture-card { background: linear-gradient(135deg, #E1C03B, #b89a2b); padding: 25px; border-radius: 12px; color: black; margin-top: 20px; }
+.highlight-tag { font-size: 0.5rem; background: black; color: white; padding: 3px 6px; border-radius: 3px; float: right; font-family: 'NLS-Brand'; }
