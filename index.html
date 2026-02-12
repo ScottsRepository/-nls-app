@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>New Levels Soccer</title>
+    
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#E1C03B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -37,6 +39,7 @@
     </div>
 
     <main id="main-content" style="display:none;">
+        
         <section id="news" class="content-section">
             <h2 class="brand-header">Latest Results</h2>
             <div class="automation-card">
@@ -72,7 +75,7 @@
                 <div class="media-icon">🎬</div>
                 <h3>VEO Match Highlights</h3>
                 <p class="coming-soon-text">COMING SOON</p>
-                <p>Elite match footage and technical analysis.</p>
+                <p>Elite match footage and technical analysis powered by Veo.</p>
             </div>
         </section>
 
@@ -126,6 +129,7 @@
     </nav>
 
     <script>
+        // Install Banner Logic
         let deferredPrompt;
         const installBanner = document.getElementById('install-banner');
 
@@ -145,6 +149,7 @@
             }
         }
 
+        // Failsafe Splash Screen Logic
         function hideSplash() {
             const splash = document.getElementById('splash-overlay');
             const landing = document.getElementById('landing-page');
@@ -157,7 +162,7 @@
         const video = document.getElementById('splash-video');
         if (video) {
             video.addEventListener('ended', hideSplash);
-            setTimeout(hideSplash, 5000);
+            setTimeout(hideSplash, 5000); // 5s Failsafe
         } else {
             hideSplash();
         }
