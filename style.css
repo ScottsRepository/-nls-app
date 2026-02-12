@@ -1,40 +1,60 @@
-/* Reset margins and ensure full height */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+/* 1. Basic Reset */
+* { 
+    box-sizing: border-box; 
+    margin: 0; 
+    padding: 0; 
+}
+
 html, body { 
     height: 100%; 
     width: 100%; 
-    overflow: hidden; 
     background-color: #000; 
-    font-family: sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+    overflow-x: hidden; /* Prevents side-scrolling */
 }
 
-/* Splash Screen Container */
+/* 2. Splash Screen Container - Still fills the whole screen */
 #splash-overlay {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
     background: #000;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Centers video horizontally */
+    align-items: center;     /* Centers video vertically */
     z-index: 9999;
-    transition: opacity 0.8s ease-out; /* Smooth fade away */
+    transition: opacity 0.8s ease-out;
 }
 
-/* Full screen video settings */
+/* 3. The Video - Now centered with padding */
 #splash-video {
-    min-width: 100%;
-    min-height: 100%;
-    object-fit: cover; /* Ensures video fills screen without stretching */
+    width: 85%;          /* Gives 7.5% padding on each side */
+    max-width: 500px;    /* Prevents it from getting too huge on tablets */
+    height: auto;        /* Keeps the soccer ball round */
+    object-fit: contain;
+    display: block;
 }
 
-/* Simple Main App Content (Hidden initially) */
+/* 4. Main App Content Styling */
 #main-content {
-    color: white;
+    padding: 20px;
     text-align: center;
-    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.hidden { opacity: 0; pointer-events: none; }
+h1 {
+    margin-top: 40px;
+    font-size: 1.8rem;
+    letter-spacing: 1px;
+}
+
+/* Utility to hide the splash */
+.hidden { 
+    opacity: 0; 
+    pointer-events: none; 
+}
