@@ -115,7 +115,21 @@ body {
 
 .btn-fixture { background: black; color: white; margin-top: 10px; }
 
-.portal-actions { margin-top: 10px; }
+/* Partners & Accreditations (Fixed Sizing) */
+.partners-container {
+    margin-top: 40px;
+    padding: 20px 10px;
+    background: #080808;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.partners-image { 
+    max-width: 300px; /* Prevents blurry over-stretching */
+    width: 100%; 
+    height: auto;
+    margin: 0 auto;
+}
 
 /* Navigation */
 .bottom-nav {
