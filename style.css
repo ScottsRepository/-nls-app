@@ -22,6 +22,7 @@ body {
     background: var(--nls-black);
     display: flex; justify-content: center; align-items: center;
     z-index: 9999;
+    opacity: 1;
     transition: opacity 1s ease-in-out;
 }
 
@@ -31,7 +32,11 @@ body {
     mix-blend-mode: screen;
 }
 
-.hidden { opacity: 0; pointer-events: none; }
+/* This is the class the JavaScript adds to hide the splash */
+.hidden { 
+    opacity: 0 !important; 
+    pointer-events: none !important; 
+}
 
 /* Brand Headers */
 .brand-header {
@@ -52,7 +57,7 @@ body {
     padding-bottom: 120px;
 }
 
-/* News & Event Cards */
+/* Cards & Buttons */
 .news-card, .event-card {
     background: var(--nls-grey);
     border-radius: 12px;
