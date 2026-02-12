@@ -65,13 +65,13 @@
         <section id="events" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS Group Events</h2>
             
-            <div class="event-card highlight-event">
+            <div class="event-card">
                 <h3>Upcoming Camps & Events</h3>
                 <p>From Elite training camps to group-wide showcases, stay ahead of the game.</p>
                 <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-gold">View All Events</a>
             </div>
 
-            <div class="event-card past-event">
+            <div class="event-card">
                 <h3>Past Event Highlights</h3>
                 <p>See what the NLS Group has been achieving recently through our initiative programs.</p>
                 <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-outline">Archive</a>
@@ -109,12 +109,32 @@
     </nav>
 
     <script>
-        setTimeout(function() {
-            var splash = document.getElementById('splash-overlay');
-            if (splash) splash.classList.add('hidden');
-        }, 4000);
+        // FUNCTION TO REMOVE SPLASH
+        function hideSplash() {
+            const splash = document.getElementById('splash-overlay');
+            if (splash) {
+                splash.classList.add('hidden');
+            }
+        }
+
+        // 1. ATTEMPT HIDE WHEN VIDEO ENDS
+        const video = document.getElementById('splash-video');
+        if (video) {
+            video.onended = hideSplash;
+        }
+
+        // 2. FORCE HIDE AFTER 4 SECONDS (Safety net)
+        setTimeout(hideSplash, 4000);
+
+        // 3. FORCE HIDE IF USER TAPS SCREEN
+        document.getElementById('splash-overlay').onclick = hideSplash;
 
         function showTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             document.getElementById(tabId).style.display = 'block';
-            document.querySelectorAll('.nav-item
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
