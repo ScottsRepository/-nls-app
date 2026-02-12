@@ -22,54 +22,80 @@
     <main id="main-content">
         
         <section id="news" class="content-section">
-            <h2 class="brand-header">Team News</h2>
+            <h2 class="brand-header">Latest Updates</h2>
+            
+            <div class="next-fixture-card">
+                <span class="highlight-tag">Next Up</span>
+                <div class="fixture-details">
+                    <h3>JPL Warriors Fixtures</h3>
+                    <p>Check the Match Center for this weekend's kickoff times and locations.</p>
+                </div>
+                <button onclick="showTab('scores')" class="btn-fixture">View Match Center</button>
+            </div>
+
             <div class="news-card">
                 <div class="card-image" style="background-image: url('assets/NLS Logo.jpeg');"></div>
                 <div class="card-body">
-                    <span class="card-date">12 FEB 2026</span>
-                    <h3>Official NLS App</h3>
-                    <p>Welcome to the NLS Group hub. Use the tabs below to find scores, events, and opportunities.</p>
+                    <span class="card-date">FEB 2026</span>
+                    <h3>Welcome to the NLS App</h3>
+                    <p>Your central hub for all things New Levels Soccer. Stay updated with the Group's latest initiatives.</p>
                 </div>
             </div>
         </section>
 
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">Match Center</h2>
-            <p style="margin-bottom: 20px;">Select a league to view live schedules and standings on the official portal.</p>
-            
             <div class="league-portal-card">
                 <div class="portal-info">
                     <h3>JPL Warriors</h3>
-                    <span>Schedules & Results 2025/26</span>
+                    <span>Official GotSport Schedule</span>
                 </div>
-                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
+                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open</a>
             </div>
 
             <div class="league-portal-card">
                 <div class="portal-info">
                     <h3>JPL U12 - U18</h3>
-                    <span>Schedules & Results 2025/26</span>
+                    <span>Official GotSport Schedule</span>
                 </div>
-                <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
+                <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open</a>
             </div>
-
-            <p class="feed-note">Note: Schedules open in a secure browser window for real-time accuracy.</p>
         </section>
 
         <section id="events" class="content-section" style="display:none;">
-            <h2 class="brand-header">Group Events</h2>
-            <div class="event-card">
-                <h3>Elite Soccer Camps</h3>
-                <p>Visit the NLS Group site to view and book upcoming sessions.</p>
-                <a href="https://www.nlsgroup.co.uk/" class="btn-gold">Visit Site</a>
+            <h2 class="brand-header">NLS Group Events</h2>
+            
+            <div class="event-card highlight-event">
+                <h3>Upcoming Camps & Events</h3>
+                <p>From Elite training camps to group-wide showcases, stay ahead of the game.</p>
+                <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-gold">View All Events</a>
+            </div>
+
+            <div class="event-card past-event">
+                <h3>Past Event Highlights</h3>
+                <p>See what the NLS Group has been achieving recently through our initiative programs.</p>
+                <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-outline">Archive</a>
             </div>
         </section>
 
         <section id="opportunities" class="content-section" style="display:none;">
-            <h2 class="brand-header">Join Us</h2>
+            <h2 class="brand-header">Pathways</h2>
+            
+            <div class="pathway-card">
+                <h3>Friday Academy</h3>
+                <p>The foundation of our development. Specialized training designed to elevate individual skills.</p>
+                <a href="https://www.nlsgroup.co.uk/fridayacademy" target="_blank" class="btn-gold">Academy Info</a>
+            </div>
+
+            <div class="pathway-card">
+                <h3>Our Elite Coaches</h3>
+                <p>Meet the team behind the talent. Learn about our UEFA licensed coaching staff.</p>
+                <a href="https://www.nlsgroup.co.uk/nls-coaches" target="_blank" class="btn-gold">Meet The Team</a>
+            </div>
+
             <div class="gdpr-notice">
-                <h4>GDPR & Data Protection</h4>
-                <p>We process all data according to UK GDPR standards. For full details, see our privacy policy on the NLS Group website.</p>
+                <h4>Data Protection</h4>
+                <p>Processed in accordance with UK GDPR via NLS Group.</p>
             </div>
         </section>
 
@@ -83,7 +109,6 @@
     </nav>
 
     <script>
-        // Splash Screen Failsafe
         setTimeout(function() {
             var splash = document.getElementById('splash-overlay');
             if (splash) splash.classList.add('hidden');
@@ -92,9 +117,4 @@
         function showTab(tabId) {
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             document.getElementById(tabId).style.display = 'block';
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+            document.querySelectorAll('.nav-item
