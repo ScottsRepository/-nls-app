@@ -7,7 +7,7 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Michroma&family=Montserrat:wght@700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     
     <link rel="stylesheet" href="style.css">
 </head>
@@ -23,19 +23,19 @@
     <main id="main-content">
         <section id="news" class="content-section">
             <h2 class="brand-header">Team News</h2>
-            <div class="news-card">
-                <p>Welcome to the New Levels Soccer app. Stay tuned for squad updates and club announcements.</p>
+            <div class="news-content">
+                <p>Welcome to the New Levels Soccer app. Stay tuned for squad updates and club announcements directly from the group.</p>
             </div>
         </section>
 
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">Score Updates</h2>
-            <p>Match results will be posted here after final whistles.</p>
+            <p>Match results and league tables will be updated here shortly.</p>
         </section>
 
         <section id="opportunities" class="content-section" style="display:none;">
-            <h2 class="brand-header">Squad Opps</h2>
-            <p>Looking to join NLS? Check here for trial dates and squad opportunities.</p>
+            <h2 class="brand-header">Join The Group</h2>
+            <p>Looking for squad opportunities or trials? All current openings are listed here.</p>
         </section>
     </main>
 
@@ -52,21 +52,21 @@
     </nav>
 
     <script>
-        // Splash screen fade out after video finishes (approx 4s)
+        // Splash screen fade out after 4 seconds
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('splash-overlay').classList.add('hidden');
             }, 4000); 
         });
 
-        // Navigation Engine
+        // Tab Switching Logic
         function showTab(tabId) {
             // Hide all sections
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
             // Show selected section
             document.getElementById(tabId).style.display = 'block';
             
-            // Update Active State in Nav Bar
+            // Update Navigation Highlighting
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             event.currentTarget.classList.add('active');
         }
