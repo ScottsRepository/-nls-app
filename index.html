@@ -17,9 +17,10 @@
         <video id="splash-video" autoplay muted playsinline>
             <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
         </video>
+        <button id="emergency-skip" onclick="hideSplash()">Skip Video</button>
     </div>
 
-    <div id="landing-page">
+    <div id="landing-page" class="hidden-landing">
         <div class="landing-content">
             <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="landing-logo">
             <h1 class="welcome-text">WELCOME TO THE<br>NLS APP</h1>
@@ -30,48 +31,29 @@
     </div>
 
     <main id="main-content" style="display:none;">
-        
         <section id="news" class="content-section">
             <h2 class="brand-header">Latest Updates</h2>
-            
             <div class="next-fixture-card">
                 <span class="highlight-tag">Next Up</span>
                 <div class="fixture-details">
                     <h3>JPL Warriors Fixtures</h3>
-                    <p>Check the Match Center for this weekend's kickoff times and locations.</p>
+                    <p>Check the Match Center for kickoff times and locations.</p>
                 </div>
                 <button onclick="showTab('scores')" class="btn-fixture">View Match Center</button>
-            </div>
-
-            <div class="news-card">
-                <div class="card-image" style="background-image: url('assets/NLS Logo.jpeg');"></div>
-                <div class="card-body">
-                    <span class="card-date">FEB 2026</span>
-                    <h3>Official NLS App</h3>
-                    <p>Your central hub for all things New Levels Soccer. Stay updated with the Group's latest initiatives.</p>
-                </div>
             </div>
         </section>
 
         <section id="about" class="content-section" style="display:none;">
             <h2 class="brand-header">About Us</h2>
-            
             <div class="mission-statement-card">
                 <h3>Our Objective</h3>
                 <p>"New Level Soccer Group was established with one sole objective. To develop every player who wants to be coached."</p>
-                <p class="mission-footer">We will always be supportive. Always be subjective. Always be committed.</p>
+                <p class="mission-footer">Always supportive. Always committed.</p>
             </div>
-
-            <div class="info-block">
-                <p>Established in 2021, NLS Group is dedicated to providing elite-level coaching pathways for players of all ages and abilities.</p>
-                <a href="https://www.nlsgroup.co.uk/about" target="_blank" class="btn-outline">Full Story</a>
-            </div>
-
             <div class="social-container">
-                <h4 class="sub-brand-header">Follow The Journey</h4>
                 <div class="social-grid">
-                    <a href="http://www.facebook.com/newlevelsoccer" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_13c34e30eda4445996cd13339f772983~mv2.png" alt="Facebook"></a>
-                    <a href="https://www.instagram.com/newlevelsoccer_" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_563b2de928f6423687bbd5443c226936~mv2.png" alt="Instagram"></a>
+                    <a href="http://www.facebook.com/newlevelsoccer" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_13c34e30eda4445996cd13339f772983~mv2.png" alt="FB"></a>
+                    <a href="https://www.instagram.com/newlevelsoccer_" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_563b2de928f6423687bbd5443c226936~mv2.png" alt="Insta"></a>
                     <a href="https://www.x.com/newlevelsoccer_" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_bec61d3e615245de8b0a168fb491c000~mv2.png" alt="X"></a>
                     <a href="http://tiktok.com/@newlevelsoccer_" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_3aea1115ec5f416da803fcab09e7c463~mv2.png" alt="TikTok"></a>
                 </div>
@@ -81,31 +63,66 @@
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">Match Center</h2>
             <div class="league-portal-card">
-                <div class="portal-info">
-                    <h3>JPL Warriors</h3>
-                    <span>Official GotSport Schedule</span>
-                </div>
-                <div class="portal-actions">
-                    <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
-                </div>
-            </div>
-
-            <div class="league-portal-card">
-                <div class="portal-info">
-                    <h3>JPL U12 - U18</h3>
-                    <span>Official GotSport Schedule</span>
-                </div>
-                <div class="portal-actions">
-                    <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
-                </div>
+                <h3>JPL Warriors</h3>
+                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
             </div>
         </section>
 
         <section id="events" class="content-section" style="display:none;">
-            <h2 class="brand-header">Group Events</h2>
+            <h2 class="brand-header">Events</h2>
             <div class="event-card">
-                <h3>Upcoming Camps & Events</h3>
-                <p>From Elite training camps to group-wide showcases, stay ahead of the game.</p>
-                <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-gold">View All Events</a>
+                <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-gold">View Events</a>
             </div>
         </section>
+
+        <section id="opportunities" class="content-section" style="display:none;">
+            <h2 class="brand-header">Pathways</h2>
+            <div class="pathway-card">
+                <a href="https://www.nlsgroup.co.uk/fridayacademy" target="_blank" class="btn-gold">Academy Info</a>
+            </div>
+            <div class="partners-container">
+                <img src="assets/NLS%20Partners%20and%20Creds.png" alt="Partners" class="partners-image">
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav" style="display:none;">
+        <div class="nav-item active" onclick="showTab('news')"><span>News</span></div>
+        <div class="nav-item" onclick="showTab('about')"><span>About</span></div>
+        <div class="nav-item" onclick="showTab('scores')"><span>Scores</span></div>
+        <div class="nav-item" onclick="showTab('events')"><span>Events</span></div>
+        <div class="nav-item" onclick="showTab('opportunities')"><span>Join</span></div>
+    </nav>
+
+    <script>
+        // Force hide splash and reveal landing page
+        function hideSplash() {
+            const splash = document.getElementById('splash-overlay');
+            const landing = document.getElementById('landing-page');
+            if (splash) splash.classList.add('hidden-out');
+            if (landing) landing.classList.remove('hidden-landing');
+        }
+
+        const video = document.getElementById('splash-video');
+        if (video) {
+            video.onended = hideSplash;
+        }
+
+        // Failsafe: After 5 seconds, ensure landing page is shown
+        setTimeout(hideSplash, 5000);
+
+        function enterApp() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.querySelector('.bottom-nav').style.display = 'flex';
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
