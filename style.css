@@ -1,4 +1,18 @@
-/* 1. Basic Reset */
+/* NLS APP BRANDING - ALIGNED WITH NLSGROUP.CO.UK
+   Primary Font: Montserrat (Bold for headers)
+   Secondary Font: Open Sans (Clean for body)
+*/
+
+:root {
+    --nls-gold: #E1C03B;    /* Official NLS Group Gold */
+    --nls-black: #000000;   /* Deep Black */
+    --nls-dark-grey: #121212; /* Section Backgrounds */
+    --nls-border: #222222;   /* Subtle Dividers */
+    --text-white: #FFFFFF;
+    --text-grey: #BBBBBB;
+}
+
+/* 1. Global Styles */
 * { 
     box-sizing: border-box; 
     margin: 0; 
@@ -8,87 +22,122 @@
 html, body { 
     height: 100%; 
     width: 100%; 
-    background-color: #000; /* Absolute black */
-    font-family: sans-serif;
-    color: white;
-    overflow: hidden;
+    background-color: var(--nls-black); 
+    font-family: 'Open Sans', sans-serif; 
+    color: var(--text-white);
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
 
-/* 2. Splash Screen Container */
+/* 2. Splash Screen Layer */
 #splash-overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: #000;
+    background: var(--nls-black);
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.8s ease-out;
+    transition: opacity 1s ease-in-out;
 }
 
-/* 3. The Video - Wider and Blended */
 #splash-video {
-    width: 100%;          /* Stretches to full width to hide side boundaries */
-    max-width: 600px;     /* Still prevents it from being too huge on big screens */
+    width: 100%;
+    max-width: 600px;
     height: auto;
     object-fit: contain;
-    
-    /* This blends the video's black background with the site's black background */
-    mix-blend-mode: screen; 
-    
-    /* Slight brightness adjustment to help the blend if the MP4 is 'off-black' */
-    filter: brightness(1.1) contrast(1.1); 
-}
-
-/* 4. Main App Content */
-#main-content {
-    padding: 20px;
-    text-align: center;
+    mix-blend-mode: screen; /* Seamless blend into black */
+    filter: contrast(1.1) brightness(1.1);
 }
 
 .hidden { 
     opacity: 0; 
     pointer-events: none; 
 }
-/* Bottom Navigation Styling */
+
+/* 3. Typography & Headers */
+h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+h2 {
+    color: var(--nls-gold);
+    font-size: 1.25rem;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* Adds that professional brand accent line */
+h2::before {
+    content: "";
+    display: inline-block;
+    width: 4px;
+    height: 20px;
+    background-color: var(--nls-gold);
+    margin-right: 12px;
+}
+
+/* 4. Main App Content Container */
+#main-content {
+    padding: 20px;
+    padding-bottom: 100px; /* Space for fixed nav */
+    min-height: 100vh;
+}
+
+.content-section p {
+    line-height: 1.6;
+    color: var(--text-grey);
+    margin-bottom: 15px;
+}
+
+/* 5. Bottom Navigation Bar */
 .bottom-nav {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 70px;
-    background: #111; /* Dark grey/black */
+    height: 75px;
+    background: rgba(10, 10, 10, 0.95); /* Tinted glass effect */
+    backdrop-filter: blur(10px);
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border-top: 1px solid #333;
+    border-top: 1px solid var(--nls-border);
     z-index: 1000;
 }
 
 .nav-item {
-    color: #888;
+    color: var(--text-grey);
     text-align: center;
-    font-size: 0.9rem;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
     cursor: pointer;
     flex: 1;
-    padding: 10px;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
 
 .nav-item.active {
-    color: #D4AF37; /* NLS Gold color */
-    font-weight: bold;
+    color: var(--nls-gold);
 }
 
-/* Content Sections */
-.content-section {
-    padding: 20px;
-    padding-bottom: 90px; /* Space for the nav bar */
-}
-
-h2 {
-    color: #D4AF37;
-    margin-bottom: 15px;
+/* Active Indicator Line */
+.nav-item.active::after {
+    content: "";
+    width: 20px;
+    height: 2px;
+    background: var(--nls-gold);
+    margin: 4px auto 0;
+    border-radius: 2px;
 }
