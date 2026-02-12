@@ -10,10 +10,6 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&family=Montserrat:wght@400;700;900&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -31,9 +27,7 @@
         <div class="hero-overlay"></div>
         <div class="landing-content">
             <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="landing-logo">
-            
             <h1 class="welcome-text">WELCOME TO THE<br>NLS APP</h1>
-            
             <div class="kickoff-container" onclick="enterApp()">
                 <img src="assets/kickoff-button.png" alt="Kick Off" class="kickoff-image">
             </div>
@@ -69,6 +63,7 @@
                 <p class="mission-footer">Supportive. Subjective. Committed.</p>
             </div>
             <div class="social-container">
+                <h4 class="sub-brand-header">Follow The Journey</h4>
                 <div class="social-grid">
                     <a href="http://www.facebook.com/newlevelsoccer" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_13c34e30eda4445996cd13339f772983~mv2.png" alt="FB"></a>
                     <a href="https://www.instagram.com/newlevelsoccer_" target="_blank"><img src="https://static.wixstatic.com/media/252d6e_563b2de928f6423687bbd5443c226936~mv2.png" alt="Insta"></a>
@@ -81,18 +76,26 @@
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">Match Center</h2>
             <div class="league-portal-card">
-                <h3>JPL Warriors</h3>
+                <div class="portal-info">
+                    <h3>JPL Warriors</h3>
+                    <span>Official GotSport Schedule</span>
+                </div>
                 <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
             </div>
             <div class="league-portal-card">
-                <h3>JPL U12 - U18</h3>
+                <div class="portal-info">
+                    <h3>JPL U12 - U18</h3>
+                    <span>Official GotSport Schedule</span>
+                </div>
                 <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open Schedule</a>
             </div>
         </section>
 
         <section id="events" class="content-section" style="display:none;">
-            <h2 class="brand-header">Events</h2>
+            <h2 class="brand-header">Group Events</h2>
             <div class="event-card">
+                <h3>Upcoming Camps</h3>
+                <p>Elite training camps and showcases.</p>
                 <a href="https://www.nlsgroup.co.uk/events" target="_blank" class="btn-gold">View Events</a>
             </div>
         </section>
@@ -100,9 +103,12 @@
         <section id="opportunities" class="content-section" style="display:none;">
             <h2 class="brand-header">Pathways</h2>
             <div class="pathway-card">
+                <h3>Friday Academy</h3>
+                <p>Specialized individual skill development.</p>
                 <a href="https://www.nlsgroup.co.uk/fridayacademy" target="_blank" class="btn-gold">Academy Info</a>
             </div>
             <div class="partners-container">
+                <h4 class="sub-brand-header">Accreditations & Partners</h4>
                 <img src="assets/NLS%20Partners%20and%20Creds.png" alt="Partners" class="partners-image">
             </div>
         </section>
@@ -124,7 +130,7 @@
             if (landing) landing.classList.remove('hidden-landing');
         }
         const video = document.getElementById('splash-video');
-        if (video) { video.onended = hideSplash; }
+        if (video) video.onended = hideSplash;
         setTimeout(hideSplash, 5000);
 
         function enterApp() {
