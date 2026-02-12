@@ -12,6 +12,11 @@
 </head>
 <body>
 
+    <div id="install-banner" style="display:none;">
+        <p>Install the NLS App for instant access</p>
+        <button onclick="triggerInstall()" class="btn-gold-small">Install Now</button>
+    </div>
+
     <div id="splash-overlay">
         <div class="video-wrapper">
             <video id="splash-video" autoplay muted playsinline>
@@ -32,7 +37,6 @@
     </div>
 
     <main id="main-content" style="display:none;">
-        
         <section id="news" class="content-section">
             <h2 class="brand-header">Latest Results</h2>
             <div class="automation-card">
@@ -122,7 +126,25 @@
     </nav>
 
     <script>
-        // Transition Function
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installBanner.style.display = 'flex';
+        });
+
+        function triggerInstall() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => {
+                    installBanner.style.display = 'none';
+                    deferredPrompt = null;
+                });
+            }
+        }
+
         function hideSplash() {
             const splash = document.getElementById('splash-overlay');
             const landing = document.getElementById('landing-page');
@@ -132,14 +154,11 @@
             }
         }
 
-        // Event Listener for Video End
         const video = document.getElementById('splash-video');
         if (video) {
             video.addEventListener('ended', hideSplash);
-            // Fallback: If video is stuck or fails to load, force transition after 5 seconds
             setTimeout(hideSplash, 5000);
         } else {
-            // If video element is missing, transition immediately
             hideSplash();
         }
 
