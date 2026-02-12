@@ -30,7 +30,10 @@ body {
 #landing-page {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: url('assets/landing-hero.jpg') no-repeat center center;
+    /* Updated to check for both jpg and png possibilities */
+    background-image: url('assets/landing-hero.jpg'), url('assets/landing-hero.png'), linear-gradient(black, black);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: cover;
     display: flex; justify-content: center; align-items: center;
     z-index: 9000;
@@ -38,21 +41,18 @@ body {
 .hero-overlay {
     position: absolute;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.7); /* Darkens your photo to make text pop */
+    background: rgba(0, 0, 0, 0.75); 
     z-index: 1;
 }
 .landing-content { position: relative; z-index: 2; text-align: center; }
 .hidden-landing { opacity: 0; pointer-events: none; }
 
-.logo-ring {
-    width: 140px; height: 140px;
-    border-radius: 50%;
-    border: 3px solid var(--nls-gold);
-    display: flex; justify-content: center; align-items: center;
-    margin: 0 auto 20px auto;
-    background: black;
+.landing-logo {
+    width: 130px; 
+    height: auto; 
+    border-radius: 12px;
+    margin-bottom: 25px;
 }
-.landing-logo { width: 90%; height: 90%; border-radius: 50%; }
 
 .welcome-text {
     font-family: 'Syncopate', sans-serif;
@@ -61,7 +61,7 @@ body {
     color: var(--nls-gold);
     margin-bottom: 40px;
 }
-.kickoff-image { width: 240px; cursor: pointer; transition: transform 0.2s; }
+.kickoff-image { width: 220px; cursor: pointer; transition: transform 0.2s; }
 .kickoff-image:active { transform: scale(0.95); }
 
 /* Main App Layout */
