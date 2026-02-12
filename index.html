@@ -7,29 +7,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <div id="splash-overlay">
+<div id="splash-overlay">
         <video id="splash-video" autoplay muted playsinline>
-    <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-</video>
+            <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
+        </video>
     </div>
 
-    <div id="main-content">
-        <h1>New Levels Soccer</h1>
-        <p>Scores & News coming soon...</p>
-    </div>
+    <main id="main-content">
+        <section id="news" class="content-section">
+            <h2>Latest Team News</h2>
+            <p>Welcome to New Levels Soccer. Stay tuned for updates!</p>
+        </section>
+
+        <section id="scores" class="content-section" style="display:none;">
+            <h2>Match Scores</h2>
+            <p>No recent scores to display.</p>
+        </section>
+
+        <section id="opportunities" class="content-section" style="display:none;">
+            <h2>Squad Opportunities</h2>
+            <p>Current trials and opportunities will appear here.</p>
+        </section>
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="showTab('news')">
+            <span>News</span>
+        </div>
+        <div class="nav-item" onclick="showTab('scores')">
+            <span>Scores</span>
+        </div>
+        <div class="nav-item" onclick="showTab('opportunities')">
+            <span>Join Us</span>
+        </div>
+    </nav>
 
     <script>
-        // Wait for the page to load, then hide splash after a delay
+        // Splash screen fade out
         window.addEventListener('load', () => {
-            const splash = document.getElementById('splash-overlay');
-            
-            // Adjust 4000 (4 seconds) to match your video length
             setTimeout(() => {
-                splash.classList.add('hidden');
+                document.getElementById('splash-overlay').classList.add('hidden');
             }, 4000); 
         });
+
+        // Tab switching logic
+        function showTab(tabId) {
+            // Hide all sections
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            // Show selected section
+            document.getElementById(tabId).style.display = 'block';
+            
+            // Update Active Class on Nav
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
     </script>
 </body>
 </html>
