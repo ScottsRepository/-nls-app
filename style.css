@@ -12,10 +12,11 @@ body {
     color: var(--text-white);
     font-family: 'Open Sans', sans-serif;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
 }
 
-/* Splash Screen Logic */
-#splash-overlay {
+/* Splash Screen & Landing Overlays */
+#splash-overlay, #landing-page {
     position: fixed;
     top: 0; left: 0; 
     width: 100vw; height: 100vh;
@@ -27,6 +28,10 @@ body {
     transition: opacity 0.8s ease, visibility 0.8s;
 }
 
+#landing-page {
+    z-index: 9000;
+}
+
 .hidden { 
     opacity: 0 !important; 
     visibility: hidden !important;
@@ -35,7 +40,40 @@ body {
 
 #splash-video { width: 100%; max-width: 600px; mix-blend-mode: screen; }
 
-/* Brand Headers */
+/* Landing Page Elements */
+.landing-content { text-align: center; padding: 20px; }
+
+.landing-logo {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 2px solid var(--nls-gold);
+}
+
+.welcome-text {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 1.2rem;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+    color: var(--nls-gold);
+    line-height: 1.4;
+}
+
+.kickoff-container {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.kickoff-container:active { transform: scale(0.95); }
+
+.kickoff-image {
+    width: 220px;
+    height: auto;
+}
+
+/* Main App Styles */
 .brand-header {
     font-family: 'Syncopate', sans-serif;
     text-transform: uppercase;
@@ -45,9 +83,16 @@ body {
     display: inline-block;
 }
 
-#main-content { padding: 30px 20px 120px 20px; }
+#main-content { padding: 30px 20px 140px 20px; }
 
-/* Fixture Highlight */
+/* Content Cards */
+.pathway-card, .event-card, .news-card, .league-portal-card, .mission-statement-card {
+    background: var(--nls-grey);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
 .next-fixture-card {
     background: linear-gradient(135deg, #E1C03B, #b89a2b);
     padding: 20px;
@@ -68,43 +113,31 @@ body {
     top: 15px; right: 15px;
 }
 
-/* Sponsor Spotlight */
-.sponsor-spotlight {
+/* Partners & Socials */
+.partners-container {
+    margin-top: 40px;
+    padding: 20px;
     background: #080808;
-    border: 1px dashed #444;
-    padding: 25px;
     border-radius: 12px;
-    margin-bottom: 25px;
     text-align: center;
 }
 
-.spotlight-label {
-    font-size: 0.6rem;
-    color: var(--nls-gold);
-    text-transform: uppercase;
-    font-weight: 800;
-    letter-spacing: 2px;
+.partners-image { 
+    max-width: 280px; 
+    width: 100%; 
+    height: auto;
+    margin: 0 auto;
 }
 
-.sponsor-spotlight h3 {
-    font-family: 'Syncopate', sans-serif;
-    font-size: 1rem;
-    margin: 10px 0;
-}
+.social-grid { display: flex; justify-content: center; gap: 20px; margin-top: 20px; }
+.social-grid img { width: 35px; height: auto; }
 
-/* UI Structure */
-.pathway-card, .event-card, .news-card, .league-portal-card, .mission-statement-card {
-    background: var(--nls-grey);
-    border-radius: 12px;
-    padding: 25px;
-    margin-bottom: 20px;
-}
-
-.btn-gold, .portal-btn, .btn-fixture {
+/* Buttons */
+.btn-gold, .portal-btn, .btn-fixture, .btn-outline {
     background: var(--nls-gold);
     color: black;
     text-decoration: none;
-    padding: 10px 15px;
+    padding: 10px 20px;
     font-family: 'Syncopate', sans-serif;
     font-size: 0.6rem;
     font-weight: 700;
@@ -114,36 +147,24 @@ body {
 }
 
 .btn-fixture { background: black; color: white; margin-top: 10px; }
+.btn-outline { background: transparent; border: 1px solid var(--nls-gold); color: var(--nls-gold); }
 
-/* Partners & Accreditations (Fixed Sizing) */
-.partners-container {
-    margin-top: 40px;
-    padding: 20px 10px;
-    background: #080808;
-    border-radius: 12px;
-    text-align: center;
-}
-
-.partners-image { 
-    max-width: 300px; /* Prevents blurry over-stretching */
-    width: 100%; 
-    height: auto;
-    margin: 0 auto;
-}
-
-/* Navigation */
+/* Glassmorphism Bottom Nav */
 .bottom-nav {
     position: fixed;
-    bottom: 0; left: 0; width: 100%; height: 80px;
-    background: #0a0a0a;
+    bottom: 0; left: 0; width: 100%; height: 85px;
+    background: rgba(10, 10, 10, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     display: flex; justify-content: space-around; align-items: center;
-    border-top: 1px solid #222;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 1000;
+    padding-bottom: 10px;
 }
 
 .nav-item {
     font-family: 'Montserrat', sans-serif;
-    color: #444;
+    color: #666;
     text-transform: uppercase;
     font-size: 0.55rem;
     font-weight: 900;
@@ -153,6 +174,4 @@ body {
 }
 
 .nav-item.active { color: var(--nls-gold); }
-
-.social-grid img { width: 30px; height: auto; }
 .gdpr-notice { font-size: 0.6rem; color: #444; margin-top: 30px; text-align: center; }
