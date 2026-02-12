@@ -13,7 +13,7 @@
 <body>
 
     <div id="splash-overlay">
-        <div class="video-constrain">
+        <div class="video-wrapper">
             <video id="splash-video" autoplay muted playsinline>
                 <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
             </video>
@@ -90,7 +90,7 @@
                 <div class="hub-button-grid">
                     <a href="mailto:events@nlsgroup.co.uk?subject=Event%20Booking" class="btn-gold-small">Book Event</a>
                     <a href="https://www.nlsgroup.co.uk/gkacademy" target="_blank" class="btn-gold-small">GK Academy</a>
-                    <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-gold-small">Player Sign-Up</a>
+                    <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-gold-small">Sign-Up</a>
                 </div>
             </div>
 
@@ -117,38 +117,4 @@
         </section>
     </main>
 
-    <nav class="bottom-nav" style="display:none;">
-        <div class="nav-item active" onclick="showTab('news')"><span>Results</span></div>
-        <div class="nav-item" onclick="showTab('scores')"><span>Match</span></div>
-        <div class="nav-item" onclick="showTab('videos')"><span>Media</span></div>
-        <div class="nav-item" onclick="showTab('podcasts')"><span>Pods</span></div>
-        <div class="nav-item" onclick="showTab('about')"><span>More</span></div>
-    </nav>
-
-    <script>
-        function hideSplash() {
-            const splash = document.getElementById('splash-overlay');
-            const landing = document.getElementById('landing-page');
-            if (splash) splash.classList.add('hidden-out');
-            if (landing) landing.classList.remove('hidden-landing');
-        }
-        const video = document.getElementById('splash-video');
-        if (video) video.onended = hideSplash;
-        setTimeout(hideSplash, 5000);
-
-        function enterApp() {
-            document.getElementById('landing-page').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
-            document.querySelector('.bottom-nav').style.display = 'flex';
-        }
-
-        function showTab(tabId) {
-            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
-            const target = document.getElementById(tabId);
-            if(target) target.style.display = 'block';
-            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-        }
-    </script>
-</body>
-</html>
+    <nav class="
