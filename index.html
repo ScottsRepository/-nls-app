@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>New Levels Soccer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="splash-overlay">
+        <video id="splash-video" autoplay muted playsinline>
+            <source src="assets/YOUR_VIDEO_NAME.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="main-content">
+        <h1>New Levels Soccer</h1>
+        <p>Scores & News coming soon...</p>
+    </div>
+
+    <script>
+        // Wait for the page to load, then hide splash after a delay
+        window.addEventListener('load', () => {
+            const splash = document.getElementById('splash-overlay');
+            
+            // Adjust 4000 (4 seconds) to match your video length
+            setTimeout(() => {
+                splash.classList.add('hidden');
+            }, 4000); 
+        });
+    </script>
+</body>
+</html>
