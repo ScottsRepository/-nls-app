@@ -39,58 +39,62 @@ body {
 
 #main-content { padding: 30px 20px 120px 20px; }
 
-/* League Portal Cards */
-.league-portal-card {
-    background: linear-gradient(135deg, #111, #1a1a1a);
-    border: 1px solid #333;
-    padding: 25px;
+/* Next Fixture Card (Dynamic Feel) */
+.next-fixture-card {
+    background: linear-gradient(135deg, #E1C03B, #b89a2b);
+    padding: 20px;
     border-radius: 12px;
-    margin-bottom: 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-left: 4px solid var(--nls-gold);
+    margin-bottom: 30px;
+    color: black;
+    position: relative;
 }
 
-.portal-info h3 {
+.highlight-tag {
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.6rem;
+    background: black;
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    position: absolute;
+    top: 15px; right: 15px;
+}
+
+.next-fixture-card h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.1rem;
     text-transform: uppercase;
     margin-bottom: 5px;
 }
 
-.portal-info span {
-    font-size: 0.75rem;
-    color: #888;
-}
-
-.portal-btn {
-    background: var(--nls-gold);
-    color: black;
-    text-decoration: none;
-    padding: 10px 15px;
-    font-family: 'Syncopate', sans-serif;
-    font-size: 0.6rem;
+.btn-fixture {
+    margin-top: 15px;
+    background: black;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+    font-size: 0.7rem;
     border-radius: 4px;
     text-transform: uppercase;
 }
 
-.feed-note {
-    font-size: 0.7rem;
-    color: #555;
-    text-align: center;
-    margin-top: 20px;
-}
-
-/* UI Elements */
-.news-card, .event-card, .gdpr-notice {
+/* Pathway & Event Cards */
+.pathway-card, .event-card, .news-card, .league-portal-card {
     background: var(--nls-grey);
     border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 25px;
+    padding: 25px;
+    margin-bottom: 20px;
 }
 
+.pathway-card h3, .event-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    color: var(--nls-gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+}
+
+/* Buttons */
 .btn-gold {
     background: var(--nls-gold);
     color: black;
@@ -102,6 +106,30 @@ body {
     border-radius: 4px;
     display: inline-block;
     text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.btn-outline {
+    border: 1px solid var(--nls-gold);
+    color: var(--nls-gold);
+    text-decoration: none;
+    padding: 8px 15px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    display: inline-block;
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-top: 10px;
+}
+
+.portal-btn {
+    background: var(--nls-gold);
+    color: black;
+    padding: 8px 12px;
+    text-decoration: none;
+    font-family: 'Syncopate', sans-serif;
+    font-size: 0.6rem;
+    border-radius: 4px;
 }
 
 /* Bottom Nav */
@@ -126,3 +154,5 @@ body {
 }
 
 .nav-item.active { color: var(--nls-gold); }
+
+.gdpr-notice { font-size: 0.6rem; color: #444; margin-top: 30px; text-align: center; }
