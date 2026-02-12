@@ -24,4 +24,71 @@
         <section id="news" class="content-section">
             <h2 class="brand-header">Team News</h2>
             <div class="news-card">
-                <div class="card-image
+                <div class="card-image" style="background-image: url('assets/NLS Logo.jpeg');"></div>
+                <div class="card-body">
+                    <span class="card-date">12 FEB 2026</span>
+                    <h3>New App Launch</h3>
+                    <p>Stay connected with NLS Group news and live match updates directly on your mobile device.</p>
+                    <a href="#" class="btn-gold">Read More</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="scores" class="content-section" style="display:none;">
+            <h2 class="brand-header">Match Center</h2>
+            <div id="score-container">
+                <p>Loading latest scores...</p>
+            </div>
+        </section>
+
+        <section id="events" class="content-section" style="display:none;">
+            <h2 class="brand-header">Events</h2>
+            <div class="event-card">
+                <h3>Half-Term Soccer Camp</h3>
+                <p>Register now for our upcoming elite training camp via the NLS Group website.</p>
+                <a href="https://www.nlsgroup.co.uk/events" class="btn-outline">View Details</a>
+            </div>
+        </section>
+
+        <section id="opportunities" class="content-section" style="display:none;">
+            <h2 class="brand-header">Join The Group</h2>
+            <div class="info-block">
+                <p>We are always looking for new talent. Check back here for trial dates and squad openings.</p>
+                <a href="mailto:info@nlsgroup.co.uk" class="btn-gold">Enquire Now</a>
+            </div>
+
+            <div class="gdpr-notice">
+                <h4>Privacy & Data Protection</h4>
+                <p>New Levels Soccer is committed to protecting your privacy. Any data submitted through this app is processed in accordance with UK GDPR. We use your information solely for club administration.</p>
+                <p>Visit the <a href="https://www.nlsgroup.co.uk/" style="color:var(--nls-gold);">NLS Group Privacy Hub</a> for more info.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="showTab('news')"><span>News</span></div>
+        <div class="nav-item" onclick="showTab('scores')"><span>Scores</span></div>
+        <div class="nav-item" onclick="showTab('events')"><span>Events</span></div>
+        <div class="nav-item" onclick="showTab('opportunities')"><span>Join Us</span></div>
+    </nav>
+
+    <script>
+        // FAILSAFE: Hide splash screen after 4 seconds no matter what
+        setTimeout(function() {
+            var splash = document.getElementById('splash-overlay');
+            if (splash) {
+                splash.classList.add('hidden');
+                console.log("Splash hidden via timeout");
+            }
+        }, 4000);
+
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            document.getElementById(tabId).style.display = 'block';
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
+    </script>
+</body>
+</html>
