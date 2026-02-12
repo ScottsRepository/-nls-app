@@ -16,7 +16,6 @@
     <div id="splash-overlay">
         <video id="splash-video" autoplay muted playsinline>
             <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
-            Your browser does not support the video tag.
         </video>
     </div>
 
@@ -24,18 +23,18 @@
         <section id="news" class="content-section">
             <h2 class="brand-header">Team News</h2>
             <div class="news-content">
-                <p>Welcome to the New Levels Soccer app. Stay tuned for squad updates and club announcements directly from the group.</p>
+                <p>Stay tuned for the latest updates from New Levels Soccer.</p>
             </div>
         </section>
 
         <section id="scores" class="content-section" style="display:none;">
-            <h2 class="brand-header">Score Updates</h2>
-            <p>Match results and league tables will be updated here shortly.</p>
+            <h2 class="brand-header">Scores</h2>
+            <p>Match results will be posted here.</p>
         </section>
 
         <section id="opportunities" class="content-section" style="display:none;">
-            <h2 class="brand-header">Join The Group</h2>
-            <p>Looking for squad opportunities or trials? All current openings are listed here.</p>
+            <h2 class="brand-header">Join Us</h2>
+            <p>Explore current squad opportunities and trials.</p>
         </section>
     </main>
 
@@ -52,21 +51,15 @@
     </nav>
 
     <script>
-        // Splash screen fade out after 4 seconds
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('splash-overlay').classList.add('hidden');
             }, 4000); 
         });
 
-        // Tab Switching Logic
         function showTab(tabId) {
-            // Hide all sections
             document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
-            // Show selected section
             document.getElementById(tabId).style.display = 'block';
-            
-            // Update Navigation Highlighting
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
             event.currentTarget.classList.add('active');
         }
