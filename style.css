@@ -52,12 +52,13 @@ body {
     padding-bottom: 120px;
 }
 
-/* News Cards */
-.news-card {
+/* News & Event Cards */
+.news-card, .event-card {
     background: var(--nls-grey);
     border-radius: 12px;
     overflow: hidden;
     margin-bottom: 25px;
+    padding-bottom: 20px;
 }
 
 .card-image {
@@ -67,75 +68,46 @@ body {
     background-position: center;
 }
 
-.card-body { padding: 20px; }
+.card-body, .event-card { padding: 20px; }
 
 .btn-gold {
     background: var(--nls-gold);
     color: black;
     text-decoration: none;
-    padding: 8px 15px;
+    padding: 10px 20px;
     font-family: 'Syncopate', sans-serif;
     font-size: 0.6rem;
     font-weight: 700;
     display: inline-block;
     border-radius: 4px;
-    margin-top: 10px;
+    text-transform: uppercase;
 }
 
-/* Event Cards (Business/Promotions) */
-.event-card {
-    background: linear-gradient(145deg, #111, #050505);
-    border: 1px solid #222;
+/* GDPR Styling */
+.gdpr-notice {
+    margin-top: 40px;
     padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
+    background: #080808;
+    border: 1px solid #222;
+    border-radius: 8px;
 }
 
-.event-card h3 {
+.gdpr-notice h4 {
     font-family: 'Montserrat', sans-serif;
+    font-size: 0.8rem;
     text-transform: uppercase;
     color: var(--nls-gold);
-    font-size: 1rem;
     margin-bottom: 10px;
 }
 
-.btn-outline {
-    border: 1px solid var(--nls-gold);
-    color: var(--nls-gold);
-    text-decoration: none;
-    padding: 6px 12px;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 700;
-    display: inline-block;
-    margin-top: 15px;
-    text-transform: uppercase;
+.gdpr-notice p {
+    font-size: 0.75rem;
+    color: #666;
+    line-height: 1.4;
+    margin-bottom: 10px;
 }
 
-/* Score Cards */
-.score-card {
-    background: var(--nls-grey);
-    border-radius: 12px;
-    padding: 15px;
-    margin-bottom: 15px;
-    border-left: 4px solid var(--nls-gold);
-}
-
-.score-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.score-display {
-    background: #222;
-    padding: 5px 12px;
-    border-radius: 4px;
-    font-weight: 800;
-    color: var(--nls-gold);
-}
-
-/* Bottom Nav (4 items) */
+/* Bottom Nav */
 .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; width: 100%; height: 80px;
