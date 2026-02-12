@@ -1,33 +1,145 @@
-/* Hub Section Styles */
-.hub-card {
+@font-face {
+    font-family: 'NLS-Brand';
+    src: url('assets/BrandBold.ttf') format('truetype');
+    font-weight: bold;
+}
+
+:root {
+    --nls-gold: #E1C03B;
+    --nls-black: #000000;
+    --nls-grey: #111111;
+    --text-white: #FFFFFF;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { 
+    background-color: var(--nls-black); 
+    color: var(--text-white);
+    font-family: 'Open Sans', sans-serif;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, .brand-header {
+    font-family: 'NLS-Brand', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.white-text { color: var(--text-white) !important; }
+
+/* Fixed Splash Screen Alignment */
+#splash-overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    background: var(--nls-black);
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 10000;
+}
+
+.video-wrapper {
+    width: 90%;
+    max-width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#splash-video {
+    width: 100%;
+    height: auto;
+    mix-blend-mode: screen;
+}
+
+.hidden-out { opacity: 0 !important; pointer-events: none !important; transition: opacity 0.8s ease; }
+
+/* Landing Page Hero */
+#landing-page {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url('assets/landing-hero.png');
+    background-position: center;
+    background-size: cover;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9000;
+}
+
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+.landing-content { position: relative; z-index: 2; text-align: center; }
+.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
+.welcome-text { font-size: 1.1rem; margin-bottom: 40px; }
+.kickoff-image { width: 220px; cursor: pointer; }
+
+/* Main Content Styling */
+#main-content { padding: 30px 20px 140px 20px; }
+.brand-header { font-size: 1.2rem; border-bottom: 2px solid var(--nls-gold); margin-bottom: 25px; display: inline-block; }
+
+.automation-card, .about-card, .hub-card, .media-placeholder {
     background: var(--nls-grey);
-    padding: 20px;
+    padding: 25px;
     border-radius: 12px;
     margin-bottom: 20px;
-    border-top: 2px solid var(--nls-gold);
 }
 
-.hub-card h3 {
-    font-size: 0.9rem;
-    margin-bottom: 15px;
-    color: var(--nls-gold);
-}
+/* Media Placeholder (Coming Soon) */
+.media-placeholder { text-align: center; border: 1px dashed #444; padding: 40px 20px; }
+.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold); font-size: 1.1rem; margin: 10px 0; }
 
-.hub-button-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
+/* Hub Layout */
+.hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold); }
+.hub-button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.hub-button-grid .btn-gold-small { width: 100%; font-size: 0.55rem; padding: 12px 5px; margin-top: 0; }
 
-.hub-button-grid .btn-gold-small {
-    margin-top: 0;
+/* Buttons & Navigation */
+.btn-gold-full, .btn-gold-small, .portal-btn, .btn-fixture {
+    background: var(--nls-gold);
+    color: black;
+    padding: 12px 20px;
+    font-family: 'NLS-Brand', sans-serif;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 15px;
     width: 100%;
-    font-size: 0.55rem;
-    padding: 10px 5px;
+    text-align: center;
 }
 
-/* Ensure the logo ring stays removed */
-.divider-logo-no-ring {
-    width: 60px;
-    border-radius: 50%;
+.btn-read-more {
+    display: inline-block;
+    border: 2px solid var(--nls-gold);
+    color: var(--nls-gold);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'NLS-Brand', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: 6px;
 }
+
+.read-more-wrapper { text-align: center; margin-top: 20px; }
+
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%; height: 85px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex; justify-content: space-around; align-items: center;
+    border-top: 1px solid #333;
+    z-index: 1000;
+}
+
+.nav-item { font-family: 'Montserrat', sans-serif; color: #555; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; text-align: center; }
+.nav-item.active { color: var(--nls-gold); }
+
+/* Clean Scores Section */
+.score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: black; }
+.logo-divider-simple { text-align: center; padding: 25px 0; }
+.divider-logo-no-ring { width: 60px; border-radius: 50%; }
+.partners-image { max-width: 280px; width: 100%; margin: 20px auto; display: block; }
