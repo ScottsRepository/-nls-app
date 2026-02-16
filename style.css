@@ -5,11 +5,13 @@
 }
 
 :root {
-    --nls-obsidian: #0A0A0A;
-    --nls-gold-shiny: linear-gradient(145deg, #D4AF37, #F2D379, #B8860B);
+    /* HIGH-CONTRAST PREMIUM PALETTE */
+    --nls-obsidian: #050505; /* Deeper Obsidian */
     --nls-gold-solid: #D4AF37;
-    --nls-silver-accent: #A8A9AD;
-    --nls-card-bg: #161616;
+    /* SHINY GOLD GRADIENT: mimics light hitting a gold bar */
+    --nls-gold-metallic: linear-gradient(135deg, #B8860B 0%, #D4AF37 25%, #FFF1A8 50%, #D4AF37 75%, #B8860B 100%);
+    --nls-silver-brushed: #A8A9AD;
+    --nls-card-glow: rgba(212, 175, 55, 0.08);
     --text-white: #FFFFFF;
 }
 
@@ -26,166 +28,118 @@ h1, h2, h3, .brand-header {
     font-family: 'NLS-Brand', sans-serif;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: var(--nls-gold-solid);
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
+/* SHINY HEADER EFFECT */
 .brand-header {
+    font-size: 1.3rem;
+    color: var(--nls-gold-solid);
     border-bottom: 2px solid var(--nls-gold-solid);
-    padding-bottom: 5px;
-    margin-bottom: 25px;
+    padding-bottom: 8px;
+    margin-bottom: 30px;
     display: inline-block;
+    background: var(--nls-gold-metallic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-.white-text { color: var(--text-white) !important; }
-
-/* Install Banner Style */
-#install-banner {
-    position: fixed;
-    top: 0; left: 0; width: 100%;
-    background: #000;
-    border-bottom: 2px solid var(--nls-gold-solid);
-    color: var(--nls-gold-solid);
-    padding: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 11000;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: bold;
-}
-
-/* Splash Screen */
-#splash-overlay {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background: #000;
-    display: flex; justify-content: center; align-items: center;
-    z-index: 10000;
-    transition: opacity 0.8s ease;
-}
-
-.video-wrapper { width: 90%; max-width: 400px; }
-#splash-video { width: 100%; height: auto; mix-blend-mode: screen; }
-.hidden-out { opacity: 0 !important; pointer-events: none !important; }
-
-/* Landing Page */
-#landing-page {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    background-image: url('assets/landing-hero.png');
-    background-position: center;
-    background-size: cover;
-    display: flex; justify-content: center; align-items: center;
-    z-index: 9000;
-}
-
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1; }
-.landing-content { position: relative; z-index: 2; text-align: center; }
-.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
-.welcome-text { font-size: 1.1rem; margin-bottom: 40px; letter-spacing: 3px; }
-.kickoff-image { width: 220px; cursor: pointer; }
-.hidden-landing { opacity: 0; pointer-events: none; }
-
-/* Content Cards */
-#main-content { padding: 30px 20px 140px 20px; }
-
+/* CARDS WITH DEPTH & SILVER HAIRLINE */
 .automation-card, .about-card, .hub-card, .media-placeholder {
-    background: var(--nls-card-bg);
+    background: linear-gradient(145deg, #111111, #080808);
     padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(168, 169, 173, 0.2);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-radius: 15px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(168, 169, 173, 0.15); /* Silver accent */
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
 }
 
-.league-tag {
-    color: var(--nls-gold-solid);
-    font-size: 0.7rem;
-    font-weight: 800;
-    display: block;
-    margin-bottom: 10px;
+/* SUBTLE OVERLAY FOR CARDS */
+.automation-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at top left, var(--nls-card-glow), transparent);
+    pointer-events: none;
 }
 
-.media-placeholder { text-align: center; border: 1px dashed var(--nls-silver-accent); padding: 40px 20px; }
-.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
-.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold-solid); font-size: 1.1rem; margin: 10px 0; }
-
-.hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold-solid); }
-.hub-button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-
-/* Interactive Elements */
+/* SHINY METALLIC BUTTONS */
 .btn-gold-full, .portal-btn, .score-block-gold {
-    background: var(--nls-gold-shiny) !important;
+    background: var(--nls-gold-metallic) !important;
     color: #000 !important;
-    padding: 12px 20px;
+    padding: 14px 20px;
     font-family: 'NLS-Brand', sans-serif;
-    font-size: 0.75rem;
+    font-size: 0.8rem;
     border-radius: 8px;
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
     width: 100%;
     text-align: center;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.4);
     font-weight: 900;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+}
+
+.btn-gold-full:active {
+    transform: scale(0.97);
+    filter: brightness(1.2);
 }
 
 .btn-gold-small {
     background: transparent;
-    border: 1px solid var(--nls-silver-accent);
-    color: var(--nls-silver-accent);
-    padding: 10px;
+    border: 1px solid var(--nls-silver-brushed);
+    color: var(--nls-silver-brushed);
+    padding: 12px;
     font-size: 0.6rem;
     border-radius: 6px;
     text-transform: uppercase;
     font-family: 'NLS-Brand', sans-serif;
+    font-weight: bold;
 }
 
-.btn-read-more {
-    display: inline-block;
-    border: 2px solid var(--nls-gold-solid);
+.league-tag {
     color: var(--nls-gold-solid);
-    padding: 12px 30px;
-    text-decoration: none;
-    font-family: 'NLS-Brand', sans-serif;
-    font-weight: 900;
+    font-size: 0.75rem;
+    font-weight: 800;
     text-transform: uppercase;
-    font-size: 0.8rem;
-    border-radius: 6px;
+    margin-bottom: 12px;
+    display: block;
 }
 
-.read-more-wrapper { text-align: center; margin-top: 20px; }
-
-.logo-divider-simple { text-align: center; padding: 25px 0; }
-.divider-logo-no-ring { width: 60px; border-radius: 50%; }
-
-/* Navigation */
+/* REFINED NAVIGATION */
 .bottom-nav {
     position: fixed;
-    bottom: 0; left: 0; width: 100%; height: 85px;
-    background: rgba(10, 10, 10, 0.98);
-    backdrop-filter: blur(15px);
+    bottom: 0; left: 0; width: 100%; height: 90px;
+    background: rgba(5, 5, 5, 0.96);
+    backdrop-filter: blur(20px);
     display: flex; justify-content: space-around; align-items: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
     z-index: 1000;
 }
 
 .nav-item { 
     font-family: 'Montserrat', sans-serif; 
-    color: var(--nls-silver-accent); 
-    font-size: 0.55rem; 
+    color: var(--nls-silver-brushed); 
+    font-size: 0.6rem; 
     font-weight: 900; 
     text-transform: uppercase; 
     text-align: center; 
-    opacity: 0.6;
+    opacity: 0.5;
 }
 
 .nav-item.active { 
     color: var(--nls-gold-solid); 
     opacity: 1;
-    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
-.partners-image { max-width: 280px; width: 100%; margin: 20px auto; display: block; }
+/* SPLASH & LANDING */
+#splash-overlay { background: #000; }
+.hero-overlay { background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%); }
+.welcome-text { font-size: 1.2rem; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+
+.partners-image { max-width: 280px; width: 100%; margin: 20px auto; opacity: 0.8; filter: grayscale(20%); }
