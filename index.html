@@ -13,7 +13,7 @@
 <body>
 
     <div id="install-banner" style="display:none;">
-        <p>INSTALL THE NLS APP FOR INSTANT ACCESS</p>
+        <p>INSTALL THE NLS APP</p>
         <button onclick="triggerInstall()" class="btn-uniform">INSTALL NOW</button>
     </div>
 
@@ -55,14 +55,14 @@
         <section id="scores" class="content-section" style="display:none;">
             <h2 class="brand-header">MATCH DAY CENTRE</h2>
             <div class="glass-card">
-                <h3 class="card-title gold-text">JPL WARRIORS</h3>
+                <h3 class="card-title">JPL WARRIORS</h3>
                 <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="btn-uniform">OPEN GOTSPORT</a>
             </div>
             <div class="logo-divider-elite">
                 <img src="assets/NLS Logo.jpeg" alt="NLS" class="divider-logo">
             </div>
             <div class="glass-card">
-                <h3 class="card-title gold-text">JPL U12 - U18</h3>
+                <h3 class="card-title">JPL U12 - U18</h3>
                 <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="btn-uniform">OPEN GOTSPORT</a>
             </div>
         </section>
@@ -70,14 +70,14 @@
         <section id="videos" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS MEDIA</h2>
             <div class="glass-card">
-                <h3 class="card-title">OFFICIAL INSTAGRAM</h3>
-                <div class="hub-btn-grid">
-                    <a href="https://www.instagram.com/newlevelssoccer/" target="_blank" class="btn-uniform">MAIN FEED</a>
-                    <a href="https://www.instagram.com/nls_warriors/" target="_blank" class="btn-uniform">WARRIORS</a>
+                <h3 class="card-title">INSTAGRAM FEED</h3>
+                <div class="insta-preview-grid">
+                    <div class="insta-placeholder" onclick="window.open('https://www.instagram.com/new_levels_soccer/', '_blank')"><span>@new_levels_soccer</span></div>
+                    <div class="insta-placeholder" onclick="window.open('https://www.instagram.com/nls_warriors_/', '_blank')"><span>@nls_warriors_</span></div>
                 </div>
+                <a href="https://www.instagram.com/new_levels_soccer/" target="_blank" class="btn-uniform">VIEW ALL POSTS</a>
             </div>
-            <div class="glass-card media-coming-soon">
-                <div class="media-icon">🎬</div>
+            <div class="glass-card">
                 <h3 class="card-title">VEO HIGHLIGHTS</h3>
                 <p class="coming-soon-tag">COMING SOON</p>
             </div>
@@ -85,36 +85,28 @@
 
         <section id="podcasts" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS PODCAST</h2>
-            <div class="hex-container">
-                <div class="hexagon-main">
-                    <span>PODCASTS<br>COMING SOON</span>
+            <div class="pods-glass-area">
+                <div class="hex-shimmer">
+                    <div class="hexagon-inner">
+                        <span class="hex-text">PODCASTS<br>COMING<br>SOON</span>
+                    </div>
                 </div>
             </div>
         </section>
 
         <section id="about" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS HUB</h2>
-            <div class="glass-card">
-                <h3 class="card-title gold-text">TRAINING & EVENTS</h3>
-                <div class="hub-btn-grid">
-                    <a href="mailto:events@nlsgroup.co.uk?subject=Event%20Booking" class="btn-uniform">BOOK EVENT</a>
-                    <a href="https://www.nlsgroup.co.uk/gkacademy" target="_blank" class="btn-uniform">GK ACADEMY</a>
-                    <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-uniform">SIGN-UP</a>
-                </div>
+            
+            <div class="more-stack">
+                <a href="mailto:events@nlsgroup.co.uk?subject=Event%20Booking" class="btn-uniform">BOOK EVENT</a>
+                <a href="https://www.nlsgroup.co.uk/gkacademy" target="_blank" class="btn-uniform">GK ACADEMY</a>
+                <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-uniform">SIGN-UP</a>
+                <a href="https://www.nlsgroup.co.uk/grassroots" target="_blank" class="btn-uniform">GRASSROOTS</a>
+                <a href="https://www.nlsgroup.co.uk/location" target="_blank" class="btn-uniform">LOCATIONS</a>
+                <a href="https://www.nlsgroup.co.uk/nls-coaches" target="_blank" class="btn-uniform">COACHES</a>
+                <a href="https://www.nlsgroup.co.uk/about" target="_blank" class="btn-uniform">OUR MISSION</a>
             </div>
-            <div class="glass-card">
-                <h3 class="card-title gold-text">PATHWAYS</h3>
-                <div class="hub-btn-grid">
-                    <a href="https://www.nlsgroup.co.uk/grassroots" target="_blank" class="btn-uniform">GRASSROOTS</a>
-                    <a href="https://www.nlsgroup.co.uk/location" target="_blank" class="btn-uniform">LOCATIONS</a>
-                    <a href="https://www.nlsgroup.co.uk/nls-coaches" target="_blank" class="btn-uniform">COACHES</a>
-                </div>
-            </div>
-            <div class="glass-card">
-                <h3 class="card-title gold-text">OUR MISSION</h3>
-                <p class="mission-text-elite">SUPPORTIVE. SUBJECTIVE. COMMITTED.</p>
-                <a href="https://www.nlsgroup.co.uk/about" target="_blank" class="btn-uniform">READ MORE ONLINE</a>
-            </div>
+
             <div class="partners-footer">
                 <img src="assets/NLS Partners and Creds.png" alt="Partners" class="partners-image">
             </div>
@@ -137,10 +129,7 @@
                 splash.style.opacity = '0';
                 setTimeout(() => {
                     splash.style.display = 'none';
-                    if (landing) {
-                        landing.classList.remove('hidden-landing');
-                        landing.style.opacity = '1';
-                    }
+                    if (landing) { landing.classList.remove('hidden-landing'); landing.style.opacity = '1'; }
                 }, 800);
             }
         }
