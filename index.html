@@ -3,49 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NLS App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <header>
-        <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="brand-logo">
-        <div class="slogan">Elevating the Standard</div>
-    </header>
+    <div id="splash-screen">
+        <img src="assets/NLS Logo.jpeg" style="width:150px;">
+        <div style="color:#D4AF37; letter-spacing:2px; text-transform:uppercase; font-size:0.8rem; margin-top:20px;">Elevating the Standard</div>
+    </div>
 
-    <main id="main-content">
-        <div class="match-grid">
-            <a href="#" class="team-card"><span>U12 Warriors</span></a>
-            <a href="#" class="team-card"><span>U14 Warriors</span></a>
-            <a href="#" class="team-card"><span>U15 Warriors</span></a>
-            <a href="#" class="team-card"><span>U16 JPL</span></a>
-            
-            <a href="#" class="team-card"><span>U11 Lions</span></a>
-            <a href="#" class="team-card"><span>U12 Grey</span></a>
-            <a href="#" class="team-card"><span>U13 Grey</span></a>
-            <a href="#" class="team-card"><span>U15 Levels Y</span></a>
-            <a href="#" class="team-card"><span>U16 Whites</span></a>
-            
-            <a href="#" class="team-card"><span>U11 Lionesses</span></a>
-            <a href="#" class="team-card"><span>U12 Lionesses</span></a>
-        </div>
-    </main>
+    <div id="app-interface">
+        <header>
+            <img src="assets/NLS Logo.jpeg" class="brand-logo">
+            <div class="slogan">Elevating the Standard</div>
+        </header>
 
-    <nav class="app-nav">
-        <a href="#" class="nav-link active">
-            <i class="fa-solid fa-circle-dot"></i>
-            <span>Match Center</span>
-        </a>
-        <a href="#" class="nav-link">
-            <i class="fa-solid fa-list-ol"></i>
-            <span>Results</span>
-        </a>
-        <a href="#" class="nav-link">
-            <i class="fa-solid fa-hubspot"></i>
-            <span>The Hub</span>
-        </a>
-    </nav>
+        <main>
+            <div class="match-grid">
+                <a href="#" class="team-card"><span>U12 Warriors</span></a>
+                <a href="#" class="team-card"><span>U14 Warriors</span></a>
+                <a href="#" class="team-card"><span>U15 Warriors</span></a>
+                <a href="#" class="team-card"><span>U16 JPL</span></a>
+                <a href="#" class="team-card"><span>U11 Lions</span></a>
+                <a href="#" class="team-card"><span>U12 Grey</span></a>
+                <a href="#" class="team-card"><span>U13 Grey</span></a>
+                <a href="#" class="team-card"><span>U15 Levels Y</span></a>
+                <a href="#" class="team-card"><span>U16 Whites</span></a>
+                <a href="#" class="team-card"><span>U11 Lionesses</span></a>
+                <a href="#" class="team-card"><span>U12 Lionesses</span></a>
+            </div>
+        </main>
 
+        <nav class="app-nav">
+            <a href="#" class="nav-link active"><i class="fa fa-circle-dot"></i><br>Match Center</a>
+            <a href="#" class="nav-link"><i class="fa fa-list-ol"></i><br>Results</a>
+            <a href="#" class="nav-link"><i class="fa fa-hubspot"></i><br>The Hub</a>
+        </nav>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(() => {
+                const splash = document.getElementById('splash-screen');
+                const app = document.getElementById('app-interface');
+                
+                splash.style.opacity = '0';
+                setTimeout(() => {
+                    splash.classList.add('hidden');
+                    app.style.display = 'block';
+                    setTimeout(() => { app.style.opacity = '1'; }, 50);
+                }, 800);
+            }, 2000);
+        };
+    </script>
 </body>
 </html>
