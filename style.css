@@ -1,142 +1,151 @@
-/* NLS App - Original Feb 12th Structure */
+@font-face {
+    font-family: 'NLS-Brand';
+    src: url('assets/BrandBold.ttf') format('truetype');
+    font-weight: bold;
+}
 
 :root {
-    --primary-blue: #009fe3; /* Original Brand Blue */
-    --dark-bg: #1a1a1a;
-    --text-white: #ffffff;
-    --grey-muted: #888888;
+    --nls-gold: #D4AF37;
+    --nls-black: #0A0A0A;
+    --nls-grey: #161616;
+    --text-white: #FFFFFF;
 }
 
-* {
-    box-sizing: border-box;
-    -webkit-tap-highlight-color: transparent;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--dark-bg);
+body { 
+    background-color: var(--nls-black); 
     color: var(--text-white);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
 }
 
-/* Splash Screen Styles */
-#splash-screen {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999;
-    transition: opacity 0.6s ease;
-}
-
-.splash-content {
-    text-align: center;
-}
-
-.splash-logo {
-    width: 150px;
-    margin-bottom: 20px;
-}
-
-.splash-text {
-    font-size: 0.8rem;
-    letter-spacing: 3px;
-    color: var(--primary-blue);
-    font-weight: 300;
-}
-
-/* Main Layout */
-header {
-    padding: 40px 0 20px;
-    text-align: center;
-}
-
-.nav-logo {
-    width: 100px;
-}
-
-.match-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
-    max-width: 600px;
-    margin: 0 auto 100px;
-}
-
-.team-card {
-    aspect-ratio: 1 / 1.15;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    transition: transform 0.2s;
-}
-
-.team-card:active {
-    transform: scale(0.95);
-    border-color: var(--primary-blue);
-}
-
-.team-card span {
-    color: white;
-    font-size: 0.6rem;
-    font-weight: bold;
+h1, h2, h3, .brand-header {
+    font-family: 'NLS-Brand', sans-serif;
     text-transform: uppercase;
-    text-align: center;
-    padding: 5px;
+    letter-spacing: 1px;
 }
+
+.white-text { color: var(--text-white) !important; }
+
+/* Install Banner Style */
+#install-banner {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #000;
+    border-bottom: 2px solid var(--nls-gold);
+    color: var(--nls-gold);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 11000;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.7rem;
+    font-weight: bold;
+}
+
+/* Perfect Centring for Splash */
+#splash-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--nls-black);
+    display: flex; justify-content: center; align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease;
+}
+
+.video-wrapper { width: 90%; max-width: 400px; }
+#splash-video { width: 100%; height: auto; mix-blend-mode: screen; }
+.hidden-out { opacity: 0 !important; pointer-events: none !important; }
+
+/* Landing Page */
+#landing-page {
+    position: fixed;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url('assets/landing-hero.png');
+    background-position: center;
+    background-size: cover;
+    display: flex; justify-content: center; align-items: center;
+    z-index: 9000;
+}
+
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+.landing-content { position: relative; z-index: 2; text-align: center; }
+.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
+.welcome-text { font-size: 1.1rem; margin-bottom: 40px; }
+.kickoff-image { width: 220px; cursor: pointer; }
+.hidden-landing { opacity: 0; pointer-events: none; }
+
+/* Hub & Media Styling */
+#main-content { padding: 30px 20px 140px 20px; }
+.brand-header { font-size: 1.2rem; border-bottom: 2px solid var(--nls-gold); margin-bottom: 25px; display: inline-block; }
+
+.automation-card, .about-card, .hub-card, .media-placeholder {
+    background: var(--nls-grey);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.media-placeholder { text-align: center; border: 1px dashed #444; padding: 40px 20px; }
+.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold); font-size: 1.1rem; margin: 10px 0; }
+
+.hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold); }
+.hub-button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+/* Uniform Buttons */
+.btn-gold-full, .btn-gold-small, .portal-btn, .btn-fixture {
+    background: var(--nls-gold);
+    color: black;
+    padding: 12px 20px;
+    font-family: 'NLS-Brand', sans-serif;
+    font-size: 0.7rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    text-decoration: none;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    border: none;
+    font-weight: bold;
+}
+
+.btn-gold-small { font-size: 0.55rem; padding: 12px 5px; margin-top: 0; }
+.btn-fixture { background: black; color: white; width: auto; margin-top: 15px; }
+
+.btn-read-more {
+    display: inline-block;
+    border: 2px solid var(--nls-gold);
+    color: var(--nls-gold);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-family: 'NLS-Brand', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    border-radius: 6px;
+}
+.read-more-wrapper { text-align: center; margin-top: 20px; }
+
+/* Match Day Centre UK */
+.score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: black; }
+.logo-divider-simple { text-align: center; padding: 25px 0; }
+.divider-logo-no-ring { width: 60px; border-radius: 50%; }
 
 /* Navigation */
 .bottom-nav {
     position: fixed;
-    bottom: 0;
-    width: 100%;
-    height: 75px;
-    background: rgba(26, 26, 26, 0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    bottom: 0; left: 0; width: 100%; height: 85px;
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(15px);
+    display: flex; justify-content: space-around; align-items: center;
+    border-top: 1px solid #333;
     z-index: 1000;
 }
 
-.nav-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--grey-muted);
-    text-decoration: none;
-    font-size: 0.65rem;
-}
-
-.nav-item.active {
-    color: var(--primary-blue);
-}
-
-.nav-item i {
-    font-size: 1.2rem;
-    margin-bottom: 5px;
-}
-
-.hidden {
-    display: none !important;
-}
-
-#app-container {
-    opacity: 0;
-    transition: opacity 0.8s ease;
-}
+.nav-item { font-family: 'Montserrat', sans-serif; color: #555; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; text-align: center; }
+.nav-item.active { color: var(--nls-gold); }
+.partners-image { max-width: 280px; width: 100%; margin: 20px auto; display: block; }
