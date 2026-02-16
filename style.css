@@ -19,73 +19,61 @@ body, html {
     overflow-x: hidden;
 }
 
-/* --- KICK OFF PAGE --- */
+/* --- LANDING IMPACT --- */
 .welcome-text-elite {
-    font-size: 2.8rem; letter-spacing: 5px; font-weight: 900;
-    text-shadow: 0 4px 30px rgba(0,0,0,1); margin-bottom: 60px;
-    line-height: 1.2; text-align: center;
+    font-size: 3.2rem; letter-spacing: 5px; font-weight: 900;
+    text-shadow: 0 4px 30px rgba(0,0,0,1); margin-bottom: 50px;
+    line-height: 1.1; text-align: center;
 }
 .gold-glow { color: var(--nls-gold); filter: drop-shadow(0 0 15px var(--nls-gold)); }
 
-/* --- GLASS MORPHISM CARDS --- */
-.glass-card {
-    background: rgba(255, 255, 255, 0.04);
-    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
-    border: 1px solid var(--nls-glass-border);
-    border-radius: 20px; padding: 25px; margin-bottom: 25px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.9);
-}
-
-/* --- MEDIA / INSTAGRAM TILES --- */
-.insta-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 15px 0; }
-.insta-glass-tile {
-    aspect-ratio: 1/1; background: rgba(0,0,0,0.6);
-    border: 1px solid var(--nls-glass-border); border-radius: 15px;
-    display: flex; flex-direction: column; justify-content: center; align-items: center;
-    transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1); cursor: pointer;
-    box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
-}
-.insta-glass-tile:active { transform: scale(0.95); border-color: white; }
-.insta-icon-small { font-size: 1.8rem; margin-bottom: 10px; filter: drop-shadow(0 0 5px var(--nls-gold)); }
-.insta-glass-tile span { font-size: 0.65rem; color: var(--nls-gold); font-weight: 900; text-transform: uppercase; }
-.media-hint { font-size: 0.55rem; color: var(--nls-silver); text-align: center; opacity: 0.6; font-weight: bold; }
-
-/* --- UNIFORM GLASS BUTTONS --- */
+/* --- UNIVERSAL GLASS BUTTONS --- */
 .btn-uniform {
     display: block; width: 100%; text-align: center;
-    padding: 22px; margin-bottom: 12px;
-    background: rgba(0, 0, 0, 0.75);
+    padding: 16px; margin-bottom: 12px; /* Sophisticated height */
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--nls-gold);
     color: var(--nls-gold) !important;
-    text-decoration: none; font-size: 0.95rem; font-weight: 900;
-    border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+    text-decoration: none; font-size: 0.85rem; font-weight: 900;
+    border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
     transition: 0.3s;
 }
-.btn-uniform:active { transform: scale(0.96); background: rgba(212, 175, 55, 0.2); }
 
-/* --- MORE SECTION STACK --- */
-.more-stack-container { display: flex; flex-direction: column; gap: 5px; padding-bottom: 40px; }
+/* --- GLASS CARDS --- */
+.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--nls-glass-border);
+    border-radius: 20px; padding: 25px; margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
+}
 
-/* --- PODS ELITE SECTION --- */
+/* --- INSTAGRAM FEED INTEGRATION --- */
+.insta-container {
+    width: 100%; height: 450px; border-radius: 10px; overflow: hidden;
+    background: #000; border: 1px solid var(--nls-glass-border);
+}
+.insta-container iframe { width: 100%; height: 100%; }
+
+/* --- PODCAST SHINY HEXAGON --- */
 .pods-container-elite {
     position: relative; width: 100%; height: 400px;
-    border-radius: 20px; overflow: hidden;
-    border: 1px solid var(--nls-glass-border);
+    border-radius: 20px; overflow: hidden; border: 1px solid var(--nls-glass-border);
 }
-.pods-bg-video {
-    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-    object-fit: cover; opacity: 0.35; filter: contrast(1.2);
-}
-.pods-overlay-glass {
-    position: absolute; inset: 0; background: rgba(0,0,0,0.45);
-    display: flex; justify-content: center; align-items: center;
-    backdrop-filter: blur(4px);
-}
+.pods-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
+.pods-overlay-glass { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; }
 .hex-shimmer {
-    width: 220px; height: 240px;
-    background: linear-gradient(135deg, var(--nls-silver), var(--nls-gold), var(--nls-silver));
+    width: 220px; height: 240px; 
+    background: linear-gradient(135deg, #A8A9AD, #FFFFFF, #A8A9AD); /* Shiny Silver Border */
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    display: flex; justify-content: center; align-items: center; padding: 2px;
+    display: flex; justify-content: center; align-items: center; padding: 4px;
+    animation: shine-sweep 3s infinite linear;
+}
+@keyframes shine-sweep {
+    0% { filter: brightness(1); }
+    50% { filter: brightness(1.5) drop-shadow(0 0 15px white); }
+    100% { filter: brightness(1); }
 }
 .hexagon-inner {
     width: 100%; height: 100%; background: var(--nls-obsidian);
@@ -94,16 +82,16 @@ body, html {
 }
 .hex-text { color: var(--nls-gold); font-size: 0.9rem; line-height: 1.5; font-weight: 900; }
 
-/* --- NAVIGATION --- */
+/* --- BOTTOM NAV --- */
 .bottom-nav {
     position: fixed; bottom: 0; width: 100%; height: 95px;
     background: rgba(5,5,5,0.98); border-top: 1px solid var(--nls-glass-border);
     display: flex; justify-content: space-around; align-items: center;
 }
-.nav-item { color: var(--nls-silver); font-size: 0.65rem; opacity: 0.4; font-weight: 900; }
+.nav-item { color: var(--nls-silver); font-size: 0.65rem; opacity: 0.4; }
 .nav-item.active { color: var(--nls-gold); opacity: 1; filter: drop-shadow(0 0 10px var(--nls-gold)); }
 
-.brand-header { font-size: 1.6rem; color: var(--nls-gold); border-bottom: 2px solid var(--nls-glass-border); padding-bottom: 12px; margin-bottom: 35px; }
+.brand-header { font-size: 1.6rem; color: var(--nls-gold); border-bottom: 2px solid var(--nls-glass-border); padding-bottom: 10px; margin-bottom: 35px; }
 .logo-divider-elite { text-align: center; padding: 25px 0; }
-.divider-logo { width: 90px; border-radius: 50%; border: 3px solid var(--nls-gold); box-shadow: 0 0 20px var(--nls-gold); }
-.hidden-landing { opacity: 0; pointer-events: none; }
+.divider-logo { width: 90px; border-radius: 50%; border: 2px solid var(--nls-gold); }
+.hidden-landing { display: none !important; }
