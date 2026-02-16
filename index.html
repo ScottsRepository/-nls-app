@@ -2,73 +2,188 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NLS App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>New Levels Soccer</title>
+    
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#D4AF37">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
-    <div id="splash-screen">
-        <div class="splash-content">
-            <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="splash-logo">
-            <h1 class="splash-text">ELEVATING THE STANDARD</h1>
+    <div id="install-banner" style="display:none;">
+        <p>Install the NLS App for instant access</p>
+        <button onclick="triggerInstall()" class="btn-gold-small">Install Now</button>
+    </div>
+
+    <div id="splash-overlay">
+        <div class="video-wrapper">
+            <video id="splash-video" autoplay muted playsinline>
+                <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
+            </video>
         </div>
     </div>
 
-    <div id="app-container" class="hidden">
-        <header>
-            <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="nav-logo">
-        </header>
-
-        <main>
-            <div class="match-grid">
-                <a href="#" class="team-card"><span>U12 Warriors</span></a>
-                <a href="#" class="team-card"><span>U14 Warriors</span></a>
-                <a href="#" class="team-card"><span>U15 Warriors</span></a>
-                <a href="#" class="team-card"><span>U16 JPL</span></a>
-                
-                <a href="#" class="team-card"><span>U11 Lions</span></a>
-                <a href="#" class="team-card"><span>U12 Grey</span></a>
-                <a href="#" class="team-card"><span>U13 Grey</span></a>
-                <a href="#" class="team-card"><span>U15 Levels Y</span></a>
-                <a href="#" class="team-card"><span>U16 Whites</span></a>
-                
-                <a href="#" class="team-card"><span>U11 Lionesses</span></a>
-                <a href="#" class="team-card"><span>U12 Lionesses</span></a>
+    <div id="landing-page" class="hidden-landing">
+        <div class="hero-overlay"></div>
+        <div class="landing-content">
+            <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="landing-logo">
+            <h1 class="welcome-text white-text">WELCOME TO THE<br>NLS APP</h1>
+            <div class="kickoff-container" onclick="enterApp()">
+                <img src="assets/kickoff-button.png" alt="Kick Off" class="kickoff-image">
             </div>
-        </main>
-
-        <nav class="bottom-nav">
-            <a href="#" class="nav-item active">
-                <i class="fa-solid fa-circle-dot"></i>
-                <span>Match Center</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-list-ol"></i>
-                <span>Results</span>
-            </a>
-            <a href="#" class="nav-item">
-                <i class="fa-solid fa-hubspot"></i>
-                <span>The Hub</span>
-            </a>
-        </nav>
+        </div>
     </div>
 
+    <main id="main-content" style="display:none;">
+        
+        <section id="news" class="content-section">
+            <h2 class="brand-header">Latest Results</h2>
+            <div class="automation-card">
+                <span class="league-tag">JPL Warriors League</span>
+                <h3>Squad Results Feed</h3>
+                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="btn-gold-full">View Live Results</a>
+            </div>
+            <div class="automation-card">
+                <span class="league-tag">JPL U12 - U18 League</span>
+                <h3>Academy Results Feed</h3>
+                <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="btn-gold-full">View Live Results</a>
+            </div>
+        </section>
+
+        <section id="scores" class="content-section" style="display:none;">
+            <h2 class="brand-header">Match Day Centre</h2>
+            <div class="score-block-gold">
+                <h3>JPL Warriors</h3>
+                <a href="https://system.gotsport.com/org_event/events/46915/schedules?club=28959" target="_blank" class="portal-btn">Open GotSport</a>
+            </div>
+            <div class="logo-divider-simple">
+                <img src="assets/NLS Logo.jpeg" alt="NLS" class="divider-logo-no-ring">
+            </div>
+            <div class="score-block-gold">
+                <h3>JPL U12 - U18</h3>
+                <a href="https://system.gotsport.com/org_event/events/48229/schedules?club=28959" target="_blank" class="portal-btn">Open GotSport</a>
+            </div>
+        </section>
+
+        <section id="videos" class="content-section" style="display:none;">
+            <h2 class="brand-header">NLS Media</h2>
+            <div class="media-placeholder">
+                <div class="media-icon">🎬</div>
+                <h3>VEO Match Highlights</h3>
+                <p class="coming-soon-text">COMING SOON</p>
+                <p>Elite match footage and technical analysis powered by Veo.</p>
+            </div>
+        </section>
+
+        <section id="podcasts" class="content-section" style="display:none;">
+            <h2 class="brand-header">NLS Podcast</h2>
+            <div class="media-placeholder">
+                <div class="media-icon">🎙️</div>
+                <h3>The NLS Journey</h3>
+                <p class="coming-soon-text">COMING SOON</p>
+                <p>Jody and the team discuss elite development.</p>
+            </div>
+        </section>
+
+        <section id="about" class="content-section" style="display:none;">
+            <h2 class="brand-header">NLS Hub</h2>
+            <div class="hub-card">
+                <h3>Training & Events</h3>
+                <div class="hub-button-grid">
+                    <a href="mailto:events@nlsgroup.co.uk?subject=Event%20Booking" class="btn-gold-small">Book Event</a>
+                    <a href="https://www.nlsgroup.co.uk/gkacademy" target="_blank" class="btn-gold-small">GK Academy</a>
+                    <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-gold-small">Sign-Up</a>
+                </div>
+            </div>
+            <div class="hub-card">
+                <h3>Pathways</h3>
+                <div class="hub-button-grid">
+                    <a href="https://www.nlsgroup.co.uk/grassroots" target="_blank" class="btn-gold-small">Grassroots</a>
+                    <a href="https://www.nlsgroup.co.uk/location" target="_blank" class="btn-gold-small">Locations</a>
+                    <a href="https://www.nlsgroup.co.uk/nls-coaches" target="_blank" class="btn-gold-small">Coaches</a>
+                </div>
+            </div>
+            <div class="about-card">
+                <h3>Our Mission</h3>
+                <p>To develop every player who wants to be coached. Supportive. Subjective. Committed.</p>
+                <div class="read-more-wrapper">
+                    <a href="https://www.nlsgroup.co.uk/about" target="_blank" class="btn-read-more">Read More Online</a>
+                </div>
+            </div>
+            <div class="partners-container">
+                <img src="assets/NLS%20Partners%20and%20Creds.png" alt="Partners" class="partners-image">
+            </div>
+        </section>
+    </main>
+
+    <nav class="bottom-nav" style="display:none;">
+        <div class="nav-item active" onclick="showTab('news')"><span>Results</span></div>
+        <div class="nav-item" onclick="showTab('scores')"><span>Match Center</span></div>
+        <div class="nav-item" onclick="showTab('videos')"><span>Media</span></div>
+        <div class="nav-item" onclick="showTab('podcasts')"><span>Pods</span></div>
+        <div class="nav-item" onclick="showTab('about')"><span>More</span></div>
+    </nav>
+
     <script>
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const splash = document.getElementById('splash-screen');
-                const app = document.getElementById('app-container');
-                
-                splash.style.opacity = '0';
-                setTimeout(() => {
-                    splash.style.display = 'none';
-                    app.classList.remove('hidden');
-                    app.style.opacity = '1';
-                }, 600);
-            }, 2000);
+        let deferredPrompt;
+        const installBanner = document.getElementById('install-banner');
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            installBanner.style.display = 'flex';
+        }
+
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
         });
+
+        function triggerInstall() {
+            if (deferredPrompt) {
+                deferredPrompt.prompt();
+                deferredPrompt.userChoice.then(() => {
+                    installBanner.style.display = 'none';
+                    deferredPrompt = null;
+                });
+            } else {
+                alert("To Install NLS App: Tap the 'Share' icon (square with arrow) at the bottom of Safari and select 'Add to Home Screen'.");
+                installBanner.style.display = 'none';
+            }
+        }
+
+        function hideSplash() {
+            const splash = document.getElementById('splash-overlay');
+            const landing = document.getElementById('landing-page');
+            if (splash && !splash.classList.contains('hidden-out')) {
+                splash.classList.add('hidden-out');
+                if (landing) landing.classList.remove('hidden-landing');
+            }
+        }
+
+        const video = document.getElementById('splash-video');
+        if (video) {
+            video.addEventListener('ended', hideSplash);
+            setTimeout(hideSplash, 5000);
+        } else {
+            hideSplash();
+        }
+
+        function enterApp() {
+            document.getElementById('landing-page').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            document.querySelector('.bottom-nav').style.display = 'flex';
+        }
+
+        function showTab(tabId) {
+            document.querySelectorAll('.content-section').forEach(s => s.style.display = 'none');
+            const target = document.getElementById(tabId);
+            if(target) target.style.display = 'block';
+            document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+            event.currentTarget.classList.add('active');
+        }
     </script>
 </body>
 </html>
