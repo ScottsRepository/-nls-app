@@ -2,7 +2,7 @@
 <html lang="en-GB">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
     <title>New Levels Soccer</title>
     
     <link rel="manifest" href="manifest.json">
@@ -20,7 +20,7 @@
     </div>
 
     <div id="splash-overlay">
-        <div class="video-wrapper">
+        <div class="video-container">
             <video id="splash-video" autoplay muted playsinline>
                 <source src="assets/NLS Splash Screen.mp4" type="video/mp4">
             </video>
@@ -159,14 +159,17 @@
             const landing = document.getElementById('landing-page');
             if (splash && !splash.classList.contains('hidden-out')) {
                 splash.classList.add('hidden-out');
-                if (landing) landing.classList.remove('hidden-landing');
+                if (landing) {
+                    landing.classList.remove('hidden-landing');
+                    landing.style.opacity = '1';
+                }
             }
         }
 
         const video = document.getElementById('splash-video');
         if (video) {
             video.addEventListener('ended', hideSplash);
-            setTimeout(hideSplash, 5000);
+            setTimeout(hideSplash, 6000); 
         } else {
             hideSplash();
         }
