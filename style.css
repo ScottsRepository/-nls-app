@@ -7,6 +7,8 @@
 :root {
     --nls-obsidian: #050505;
     --nls-gold: #D4AF37;
+    --nls-gold-shiny: linear-gradient(135deg, #B8860B 0%, #D4AF37 30%, #FFF1A8 50%, #D4AF37 70%, #B8860B 100%);
+    --nls-glass-bg: rgba(255, 255, 255, 0.03);
     --nls-glass-border: rgba(212, 175, 55, 0.4);
     --nls-silver: #A8A9AD;
 }
@@ -17,115 +19,93 @@ body, html {
     background-color: var(--nls-obsidian);
     color: white; font-family: 'NLS-Brand', sans-serif;
     overflow-x: hidden;
-    -webkit-text-size-adjust: 100%;
 }
 
-/* --- THE SPLASH FIX --- */
-#splash-overlay {
-    position: fixed; inset: 0; 
-    background: #000; z-index: 10000;
-    display: flex; justify-content: center; align-items: center;
-    transition: opacity 0.8s ease;
-}
-.video-container { width: 100%; display: flex; justify-content: center; }
-#splash-video { width: 85%; max-width: 400px; mix-blend-mode: screen; }
-
-/* --- LANDING FIX --- */
-#landing-page {
-    position: fixed; inset: 0;
-    background: url('assets/landing-hero.png') center/cover no-repeat;
-    display: none; flex-direction: column; justify-content: center; align-items: center;
-    z-index: 9000; opacity: 0; transition: opacity 0.8s ease;
-}
-.hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
-.landing-content { position: relative; z-index: 2; text-align: center; width: 90%; }
-.landing-logo { width: 100px; height: auto; margin-bottom: 25px; border-radius: 12px; }
+/* --- LANDING IMPACT --- */
 .welcome-text-elite {
-    font-size: 2.4rem; letter-spacing: 4px; font-weight: 900;
-    line-height: 1.1; margin-bottom: 35px; text-shadow: 0 4px 15px #000;
+    font-size: 2.6rem; letter-spacing: 4px; font-weight: 900;
+    line-height: 1.1; margin-bottom: 40px; text-align: center;
+    text-shadow: 0 4px 25px #000;
 }
-.gold-glow { color: var(--nls-gold); filter: drop-shadow(0 0 10px var(--nls-gold)); }
-.kickoff-image { width: 180px; height: auto; cursor: pointer; }
+.gold-glow { color: var(--nls-gold); filter: drop-shadow(0 0 12px var(--nls-gold)); }
 
-/* --- UNIVERSAL GLASS BUTTONS (SAFE WIDTH) --- */
-.btn-uniform {
+/* --- THE AMAZING GLASS BUTTONS --- */
+.btn-glass-gold {
     display: block; width: 100%; text-align: center;
-    padding: 18px 10px; margin: 0 0 12px 0;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    padding: 18px 10px; margin-bottom: 12px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.01));
+    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--nls-gold);
     color: var(--nls-gold) !important;
     text-decoration: none; font-size: 0.85rem; font-weight: 900;
-    border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-    transition: 0.3s;
-    box-sizing: border-box;
+    border-radius: 12px; 
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    position: relative; overflow: hidden;
 }
+/* Shimmer effect on button */
+.btn-glass-gold::before {
+    content: ''; position: absolute; top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+    transition: 0.5s;
+}
+.btn-glass-gold:active { transform: scale(0.97); border-color: white; }
 
-/* --- GLASS CARDS --- */
+/* --- GLASS CARDS (FROSTED EFFECT) --- */
 .glass-card {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+    background: var(--nls-glass-bg);
+    backdrop-filter: blur(25px); -webkit-backdrop-filter: blur(25px);
     border: 1px solid var(--nls-glass-border);
-    border-radius: 18px; padding: 20px; margin-bottom: 20px;
-    width: 100%; box-sizing: border-box;
+    border-radius: 20px; padding: 25px; margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8), inset 0 0 0 1px rgba(255,255,255,0.05);
 }
 
-.content-section {
-    padding: 30px 15px 120px 15px; /* Side buffers */
-    box-sizing: border-box;
-}
-
-/* --- INSTAGRAM FIX --- */
+/* --- INSTAGRAM MOBILE FIX --- */
 .insta-responsive {
-    position: relative; padding-bottom: 120%;
-    height: 0; overflow: hidden; border-radius: 10px;
+    position: relative; padding-bottom: 125%;
+    height: 0; overflow: hidden; border-radius: 12px;
 }
 .insta-responsive iframe {
-    position: absolute; top: 0; left: 0;
-    width: 100%; height: 100%; border: 0;
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0;
 }
 
-/* --- SHINY HEXAGON --- */
+/* --- PODCAST SHINY HEXAGON --- */
 .pods-container-elite {
     position: relative; width: 100%; height: 350px;
-    border-radius: 18px; overflow: hidden; border: 1px solid var(--nls-glass-border);
+    border-radius: 20px; overflow: hidden; border: 1px solid var(--nls-glass-border);
 }
 .pods-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0.3; }
 .pods-overlay-glass { position: absolute; inset: 0; background: rgba(0,0,0,0.4); display: flex; justify-content: center; align-items: center; }
 
 .hex-shimmer {
-    width: 180px; height: 200px;
+    width: 200px; height: 220px;
     background: linear-gradient(135deg, var(--nls-silver) 0%, #FFFFFF 50%, var(--nls-silver) 100%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex; justify-content: center; align-items: center; padding: 4px;
-    animation: shine-sweep 3s infinite ease-in-out;
+    animation: shine-sweep 3s infinite linear;
 }
 @keyframes shine-sweep {
     0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
-    50% { filter: brightness(1.5) drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+    50% { filter: brightness(1.6) drop-shadow(0 0 20px rgba(255,255,255,0.7)); }
 }
 .hexagon-inner {
     width: 100%; height: 100%; background: var(--nls-obsidian);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex; justify-content: center; align-items: center; text-align: center;
 }
-.hex-text { color: var(--nls-gold); font-size: 0.8rem; line-height: 1.4; font-weight: 900; }
+.hex-text { color: var(--nls-gold); font-size: 0.85rem; line-height: 1.5; font-weight: 900; }
 
-/* --- NAVIGATION --- */
+/* --- NAVIGATION & HEADERS --- */
 .bottom-nav {
-    position: fixed; bottom: 0; width: 100%; 
-    height: calc(80px + env(safe-area-inset-bottom));
-    padding-bottom: env(safe-area-inset-bottom);
+    position: fixed; bottom: 0; width: 100%; height: 90px;
     background: rgba(5,5,5,0.98); border-top: 1px solid var(--nls-glass-border);
     display: flex; justify-content: space-around; align-items: center; z-index: 1000;
 }
-.nav-item { color: var(--nls-silver); font-size: 0.6rem; opacity: 0.4; font-weight: 900; }
+.nav-item { color: var(--nls-silver); font-size: 0.65rem; opacity: 0.4; font-weight: 900; }
 .nav-item.active { color: var(--nls-gold); opacity: 1; filter: drop-shadow(0 0 10px var(--nls-gold)); }
 
-.brand-header { font-size: 1.4rem; color: var(--nls-gold); border-bottom: 1px solid var(--nls-glass-border); padding-bottom: 8px; margin-bottom: 25px; }
-.logo-divider-center { display: flex; justify-content: center; padding: 20px 0; }
-.divider-logo { width: 70px; border-radius: 50%; border: 2px solid var(--nls-gold); }
+.content-section { padding: 30px 15px 120px 15px; }
+.brand-header { font-size: 1.5rem; color: var(--nls-gold); border-bottom: 2px solid var(--nls-glass-border); padding-bottom: 10px; margin-bottom: 30px; }
+.divider-logo { width: 85px; border-radius: 50%; border: 3px solid var(--nls-gold); box-shadow: 0 0 20px var(--nls-gold); }
 .hidden-landing { display: none !important; }
-
-.partners-footer { text-align: center; padding: 25px 0; }
-.partners-image { width: 100%; max-width: 280px; filter: brightness(1.1); opacity: 0.8; }
+.logo-divider-center { display: flex; justify-content: center; padding: 25px 0; }
