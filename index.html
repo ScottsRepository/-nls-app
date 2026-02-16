@@ -70,22 +70,16 @@
         <section id="videos" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS MEDIA</h2>
             <div class="glass-card">
-                <h3 class="card-title">INSTAGRAM FEEDS</h3>
-                <div class="insta-preview-grid">
-                    <div class="insta-glass-tile" onclick="window.open('https://www.instagram.com/newlevelsoccer_?igsh=cnlhNnVpeng2YXRw', '_blank')">
-                        <div class="insta-icon-small">📸</div>
-                        <span>@newlevelsoccer_</span>
-                    </div>
-                    <div class="insta-glass-tile" onclick="window.open('https://www.instagram.com/nls_girls?igsh=a3R5d3JuYnJzMGYw', '_blank')">
-                        <div class="insta-icon-small">📸</div>
-                        <span>@nls_girls</span>
-                    </div>
+                <h3 class="card-title">@NEWLEVELSOCCER_</h3>
+                <div class="insta-container">
+                    <iframe src="https://www.instagram.com/newlevelsoccer_/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
                 </div>
-                <p class="media-hint">TAP TILES TO VIEW OFFICIAL PAGES</p>
             </div>
             <div class="glass-card">
-                <h3 class="card-title">VEO HIGHLIGHTS</h3>
-                <p class="coming-soon-tag">COMING SOON</p>
+                <h3 class="card-title">@NLS_GIRLS</h3>
+                <div class="insta-container">
+                    <iframe src="https://www.instagram.com/nls_girls/embed" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+                </div>
             </div>
         </section>
 
@@ -107,7 +101,7 @@
 
         <section id="about" class="content-section" style="display:none;">
             <h2 class="brand-header">NLS HUB</h2>
-            <div class="more-stack-container">
+            <div class="more-stack">
                 <a href="mailto:events@nlsgroup.co.uk?subject=Event%20Booking" class="btn-uniform">BOOK EVENT</a>
                 <a href="https://www.nlsgroup.co.uk/gkacademy" target="_blank" class="btn-uniform">GK ACADEMY</a>
                 <a href="https://www.nlsgroup.co.uk/player-sign-up" target="_blank" class="btn-uniform">SIGN-UP</a>
@@ -138,7 +132,11 @@
                 splash.style.opacity = '0';
                 setTimeout(() => {
                     splash.style.display = 'none';
-                    if (landing) { landing.classList.remove('hidden-landing'); landing.style.opacity = '1'; }
+                    if (landing) { 
+                        landing.classList.remove('hidden-landing');
+                        landing.style.display = 'flex';
+                        setTimeout(() => { landing.style.opacity = '1'; }, 50);
+                    }
                 }, 800);
             }
         }
