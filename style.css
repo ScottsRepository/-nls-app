@@ -16,7 +16,7 @@ body, html {
     width: 100%; height: 100%;
     background-color: var(--nls-obsidian);
     color: white; font-family: 'NLS-Brand', sans-serif;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-x: hidden;
     -webkit-text-size-adjust: 100%;
 }
 
@@ -30,7 +30,7 @@ body, html {
 .video-container { width: 100%; display: flex; justify-content: center; }
 #splash-video { width: 85%; max-width: 400px; mix-blend-mode: screen; }
 
-/* --- LANDING CENTERING & SCALE --- */
+/* --- LANDING FIX --- */
 #landing-page {
     position: fixed; inset: 0;
     background: url('assets/landing-hero.png') center/cover no-repeat;
@@ -39,23 +39,18 @@ body, html {
 }
 .hero-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.85); }
 .landing-content { position: relative; z-index: 2; text-align: center; width: 90%; }
-
 .landing-logo { width: 100px; height: auto; margin-bottom: 25px; border-radius: 12px; }
 .welcome-text-elite {
-    font-size: 2.2rem; letter-spacing: 3px; font-weight: 900;
+    font-size: 2.4rem; letter-spacing: 4px; font-weight: 900;
     line-height: 1.1; margin-bottom: 35px; text-shadow: 0 4px 15px #000;
 }
 .gold-glow { color: var(--nls-gold); filter: drop-shadow(0 0 10px var(--nls-gold)); }
 .kickoff-image { width: 180px; height: auto; cursor: pointer; }
 
-/* --- TOP TIER RESPONSIVE BUTTONS (Fixes width issue) --- */
+/* --- UNIVERSAL GLASS BUTTONS (SAFE WIDTH) --- */
 .btn-uniform {
-    display: block; 
-    width: 100%; /* Spans full width of container */
-    max-width: 100%; /* Safety lock */
-    text-align: center;
-    padding: 18px 10px; 
-    margin: 0 0 12px 0; /* Vertical spacing only */
+    display: block; width: 100%; text-align: center;
+    padding: 18px 10px; margin: 0 0 12px 0;
     background: rgba(255, 255, 255, 0.05);
     backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
     border: 1px solid var(--nls-gold);
@@ -63,29 +58,26 @@ body, html {
     text-decoration: none; font-size: 0.85rem; font-weight: 900;
     border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.5);
     transition: 0.3s;
+    box-sizing: border-box;
 }
 
-/* --- FLUID CARDS --- */
+/* --- GLASS CARDS --- */
 .glass-card {
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
     border: 1px solid var(--nls-glass-border);
-    border-radius: 18px; 
-    padding: 20px; 
-    margin-bottom: 20px;
-    width: 100%; /* Fill the section padding */
+    border-radius: 18px; padding: 20px; margin-bottom: 20px;
+    width: 100%; box-sizing: border-box;
+}
+
+.content-section {
+    padding: 30px 15px 120px 15px; /* Side buffers */
     box-sizing: border-box;
 }
 
-/* --- SECTION PADDING (Fixes bleed) --- */
-.content-section {
-    padding: 30px 15px 120px 15px; /* Added 15px side safety margins */
-}
-
-/* --- INSTAGRAM MOBILE FIX --- */
+/* --- INSTAGRAM FIX --- */
 .insta-responsive {
-    position: relative;
-    padding-bottom: 120%; /* Prevents clipping */
+    position: relative; padding-bottom: 120%;
     height: 0; overflow: hidden; border-radius: 10px;
 }
 .insta-responsive iframe {
@@ -93,7 +85,7 @@ body, html {
     width: 100%; height: 100%; border: 0;
 }
 
-/* --- PODCAST SHINY HEXAGON --- */
+/* --- SHINY HEXAGON --- */
 .pods-container-elite {
     position: relative; width: 100%; height: 350px;
     border-radius: 18px; overflow: hidden; border: 1px solid var(--nls-glass-border);
@@ -103,12 +95,15 @@ body, html {
 
 .hex-shimmer {
     width: 180px; height: 200px;
-    background: linear-gradient(135deg, #A8A9AD, #FFFFFF, #A8A9AD);
+    background: linear-gradient(135deg, var(--nls-silver) 0%, #FFFFFF 50%, var(--nls-silver) 100%);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex; justify-content: center; align-items: center; padding: 4px;
-    animation: shine-glow 3s infinite linear;
+    animation: shine-sweep 3s infinite ease-in-out;
 }
-@keyframes shine-glow { 0%, 100% { filter: brightness(1); } 50% { filter: brightness(1.3) drop-shadow(0 0 10px white); } }
+@keyframes shine-sweep {
+    0%, 100% { filter: brightness(1) drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+    50% { filter: brightness(1.5) drop-shadow(0 0 15px rgba(255,255,255,0.6)); }
+}
 .hexagon-inner {
     width: 100%; height: 100%; background: var(--nls-obsidian);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
@@ -118,7 +113,9 @@ body, html {
 
 /* --- NAVIGATION --- */
 .bottom-nav {
-    position: fixed; bottom: 0; width: 100%; height: 80px;
+    position: fixed; bottom: 0; width: 100%; 
+    height: calc(80px + env(safe-area-inset-bottom));
+    padding-bottom: env(safe-area-inset-bottom);
     background: rgba(5,5,5,0.98); border-top: 1px solid var(--nls-glass-border);
     display: flex; justify-content: space-around; align-items: center; z-index: 1000;
 }
@@ -129,9 +126,6 @@ body, html {
 .logo-divider-center { display: flex; justify-content: center; padding: 20px 0; }
 .divider-logo { width: 70px; border-radius: 50%; border: 2px solid var(--nls-gold); }
 .hidden-landing { display: none !important; }
-
-/* --- MORE STACK --- */
-.more-stack { width: 100%; }
 
 .partners-footer { text-align: center; padding: 25px 0; }
 .partners-image { width: 100%; max-width: 280px; filter: brightness(1.1); opacity: 0.8; }
