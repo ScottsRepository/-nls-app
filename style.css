@@ -5,17 +5,18 @@
 }
 
 :root {
-    /* New Colourway: Obsidian & Champagne Gold */
-    --nls-gold: #D4AF37;
-    --nls-black: #0A0A0A;
-    --nls-grey: #161616;
+    --nls-obsidian: #0A0A0A;
+    --nls-gold-shiny: linear-gradient(145deg, #D4AF37, #F2D379, #B8860B);
+    --nls-gold-solid: #D4AF37;
+    --nls-silver-accent: #A8A9AD;
+    --nls-card-bg: #161616;
     --text-white: #FFFFFF;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body { 
-    background-color: var(--nls-black); 
+    background-color: var(--nls-obsidian); 
     color: var(--text-white);
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
@@ -24,7 +25,16 @@ body {
 h1, h2, h3, .brand-header {
     font-family: 'NLS-Brand', sans-serif;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+    color: var(--nls-gold-solid);
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+}
+
+.brand-header {
+    border-bottom: 2px solid var(--nls-gold-solid);
+    padding-bottom: 5px;
+    margin-bottom: 25px;
+    display: inline-block;
 }
 
 .white-text { color: var(--text-white) !important; }
@@ -34,8 +44,8 @@ h1, h2, h3, .brand-header {
     position: fixed;
     top: 0; left: 0; width: 100%;
     background: #000;
-    border-bottom: 2px solid var(--nls-gold);
-    color: var(--nls-gold);
+    border-bottom: 2px solid var(--nls-gold-solid);
+    color: var(--nls-gold-solid);
     padding: 10px;
     display: flex;
     justify-content: space-between;
@@ -46,11 +56,11 @@ h1, h2, h3, .brand-header {
     font-weight: bold;
 }
 
-/* Splash Overlay */
+/* Splash Screen */
 #splash-overlay {
     position: fixed;
     top: 0; left: 0; width: 100vw; height: 100vh;
-    background: var(--nls-black);
+    background: #000;
     display: flex; justify-content: center; align-items: center;
     z-index: 10000;
     transition: opacity 0.8s ease;
@@ -71,56 +81,72 @@ h1, h2, h3, .brand-header {
     z-index: 9000;
 }
 
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.75); z-index: 1; }
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1; }
 .landing-content { position: relative; z-index: 2; text-align: center; }
 .landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
-.welcome-text { font-size: 1.1rem; margin-bottom: 40px; }
+.welcome-text { font-size: 1.1rem; margin-bottom: 40px; letter-spacing: 3px; }
 .kickoff-image { width: 220px; cursor: pointer; }
 .hidden-landing { opacity: 0; pointer-events: none; }
 
-/* Cards & Placeholders */
+/* Content Cards */
 #main-content { padding: 30px 20px 140px 20px; }
-.brand-header { font-size: 1.2rem; border-bottom: 2px solid var(--nls-gold); margin-bottom: 25px; display: inline-block; }
 
 .automation-card, .about-card, .hub-card, .media-placeholder {
-    background: var(--nls-grey);
+    background: var(--nls-card-bg);
     padding: 25px;
     border-radius: 12px;
     margin-bottom: 20px;
-    border: 1px solid rgba(212, 175, 55, 0.1); /* Subtle gold tint on border */
+    border: 1px solid rgba(168, 169, 173, 0.2);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.media-placeholder { text-align: center; border: 1px dashed #444; padding: 40px 20px; }
-.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
-.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold); font-size: 1.1rem; margin: 10px 0; }
+.league-tag {
+    color: var(--nls-gold-solid);
+    font-size: 0.7rem;
+    font-weight: 800;
+    display: block;
+    margin-bottom: 10px;
+}
 
-.hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold); }
+.media-placeholder { text-align: center; border: 1px dashed var(--nls-silver-accent); padding: 40px 20px; }
+.media-icon { font-size: 2.5rem; margin-bottom: 15px; }
+.coming-soon-text { font-family: 'NLS-Brand'; color: var(--nls-gold-solid); font-size: 1.1rem; margin: 10px 0; }
+
+.hub-card h3 { font-size: 0.9rem; margin-bottom: 15px; color: var(--nls-gold-solid); }
 .hub-button-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-/* Buttons - Unified Gold Palette */
-.btn-gold-full, .btn-gold-small, .portal-btn, .btn-fixture {
-    background: var(--nls-gold);
-    color: var(--nls-black); /* Improved contrast: black text on gold */
+/* Interactive Elements */
+.btn-gold-full, .portal-btn, .score-block-gold {
+    background: var(--nls-gold-shiny) !important;
+    color: #000 !important;
     padding: 12px 20px;
     font-family: 'NLS-Brand', sans-serif;
-    font-size: 0.7rem;
-    border-radius: 6px;
+    font-size: 0.75rem;
+    border-radius: 8px;
     text-transform: uppercase;
     text-decoration: none;
     display: inline-block;
     width: 100%;
     text-align: center;
     border: none;
-    font-weight: bold;
+    font-weight: 900;
 }
 
-.btn-gold-small { font-size: 0.55rem; padding: 12px 5px; margin-top: 0; }
-.btn-fixture { background: var(--nls-black); color: var(--text-white); border: 1px solid var(--nls-gold); width: auto; margin-top: 15px; }
+.btn-gold-small {
+    background: transparent;
+    border: 1px solid var(--nls-silver-accent);
+    color: var(--nls-silver-accent);
+    padding: 10px;
+    font-size: 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    font-family: 'NLS-Brand', sans-serif;
+}
 
 .btn-read-more {
     display: inline-block;
-    border: 2px solid var(--nls-gold);
-    color: var(--nls-gold);
+    border: 2px solid var(--nls-gold-solid);
+    color: var(--nls-gold-solid);
     padding: 12px 30px;
     text-decoration: none;
     font-family: 'NLS-Brand', sans-serif;
@@ -129,10 +155,9 @@ h1, h2, h3, .brand-header {
     font-size: 0.8rem;
     border-radius: 6px;
 }
+
 .read-more-wrapper { text-align: center; margin-top: 20px; }
 
-/* Match Day Centre */
-.score-block-gold { background: var(--nls-gold); padding: 30px; border-radius: 12px; text-align: center; color: var(--nls-black); }
 .logo-divider-simple { text-align: center; padding: 25px 0; }
 .divider-logo-no-ring { width: 60px; border-radius: 50%; }
 
@@ -140,13 +165,27 @@ h1, h2, h3, .brand-header {
 .bottom-nav {
     position: fixed;
     bottom: 0; left: 0; width: 100%; height: 85px;
-    background: rgba(10, 10, 10, 0.95);
+    background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(15px);
     display: flex; justify-content: space-around; align-items: center;
-    border-top: 1px solid #333;
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
     z-index: 1000;
 }
 
-.nav-item { font-family: 'Montserrat', sans-serif; color: #555; font-size: 0.55rem; font-weight: 900; text-transform: uppercase; text-align: center; }
-.nav-item.active { color: var(--nls-gold); }
+.nav-item { 
+    font-family: 'Montserrat', sans-serif; 
+    color: var(--nls-silver-accent); 
+    font-size: 0.55rem; 
+    font-weight: 900; 
+    text-transform: uppercase; 
+    text-align: center; 
+    opacity: 0.6;
+}
+
+.nav-item.active { 
+    color: var(--nls-gold-solid); 
+    opacity: 1;
+    text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
+}
+
 .partners-image { max-width: 280px; width: 100%; margin: 20px auto; display: block; }
