@@ -20,110 +20,142 @@ body, html {
     width: 100%; height: 100%;
     background-color: var(--nls-obsidian); 
     color: var(--text-white);
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'NLS-Brand', sans-serif !important;
     overflow-x: hidden;
 }
 
-/* --- FIXED SPLASH OVERLAY --- */
-#splash-overlay {
-    position: fixed;
-    top: 0; left: 0; 
-    width: 100vw; height: 100vh;
-    background: #000;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    z-index: 10000;
-    transition: opacity 0.8s ease;
-}
-
-.video-container {
-    width: 100%;
-    max-width: 500px;
-    display: flex;
-    justify-content: center;
-}
-
-#splash-video {
-    width: 90%;
-    height: auto;
-    mix-blend-mode: screen;
-}
-
-.hidden-out { opacity: 0 !important; pointer-events: none !important; }
-
-/* --- LANDING PAGE --- */
-#landing-page {
-    position: fixed;
-    top: 0; left: 0; 
-    width: 100vw; height: 100vh;
-    background-image: url('assets/landing-hero.png');
-    background-position: center;
-    background-size: cover;
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    z-index: 9000;
-    transition: opacity 0.8s ease;
-}
-
-.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1; }
-.landing-content { position: relative; z-index: 2; text-align: center; width: 100%; }
-.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
-.welcome-text { font-size: 1.2rem; margin-bottom: 40px; letter-spacing: 3px; font-family: 'NLS-Brand'; }
-.kickoff-image { width: 220px; cursor: pointer; }
-.hidden-landing { opacity: 0; pointer-events: none; }
-
-/* --- MAIN CONTENT & BUTTONS --- */
-#main-content { padding: 30px 20px 140px 20px; }
-
-.brand-header {
-    font-family: 'NLS-Brand';
-    font-size: 1.3rem;
-    color: var(--nls-gold-solid);
-    border-bottom: 2px solid var(--nls-gold-solid);
-    padding-bottom: 8px;
-    margin-bottom: 30px;
-    display: inline-block;
-}
-
-.automation-card, .about-card, .hub-card, .media-placeholder {
-    background: var(--nls-card-bg);
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 25px;
-    border: 1px solid rgba(168, 169, 173, 0.2);
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
-}
-
-.btn-gold-full, .portal-btn, .score-block-gold {
-    background: var(--nls-gold-metallic) !important;
-    color: #000 !important;
-    padding: 14px 20px;
-    font-family: 'NLS-Brand';
-    font-size: 0.8rem;
-    border-radius: 8px;
+h1, h2, h3, .brand-header, .nav-item, .btn-gold-shiny, .btn-install, .card-title, .coming-soon-title, .hub-category, .mission-text, .btn-silver-outline {
+    font-family: 'NLS-Brand', sans-serif !important;
     text-transform: uppercase;
-    text-decoration: none;
-    display: inline-block;
-    width: 100%;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.3);
+    letter-spacing: 1px;
+}
+
+/* --- INSTALL BANNER --- */
+#install-banner {
+    position: fixed;
+    top: 0; left: 0; width: 100%;
+    background: #000;
+    border-bottom: 2px solid var(--nls-gold-solid);
+    color: var(--nls-gold-solid);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 11000;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+.btn-install {
+    background: var(--nls-gold-metallic);
+    color: #000;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 25px;
+    font-size: 0.55rem;
     font-weight: 900;
 }
 
-.nav-item.active { 
-    color: var(--nls-gold-solid); 
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+/* --- SPLASH & LANDING --- */
+#splash-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #000; display: flex; justify-content: center; align-items: center;
+    z-index: 10000; transition: opacity 0.8s ease;
 }
 
+#splash-video { width: 90%; mix-blend-mode: screen; }
+
+#landing-page {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background-image: url('assets/landing-hero.png'); background-size: cover;
+    background-position: center;
+    display: flex; justify-content: center; align-items: center; z-index: 9000;
+}
+
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); }
+.landing-content { position: relative; z-index: 2; text-align: center; }
+.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
+.welcome-text { font-size: 1.2rem; letter-spacing: 3px; margin-bottom: 40px; color: var(--text-white); }
+.kickoff-image { width: 220px; cursor: pointer; }
+
+/* --- CONTENT SECTIONS --- */
+#main-content { padding: 40px 20px 140px; }
+.brand-header {
+    font-size: 1.3rem; color: var(--nls-gold-solid);
+    border-bottom: 2px solid var(--nls-gold-solid);
+    padding-bottom: 5px; margin-bottom: 30px; display: inline-block;
+}
+
+/* --- CARDS & ACCENTS --- */
+.automation-card, .media-placeholder-shiny, .hub-card-premium, .mission-card-premium {
+    background: var(--nls-card-bg);
+    padding: 25px; border-radius: 15px; margin-bottom: 25px;
+    border: 1px solid rgba(168, 169, 173, 0.25); /* Brushed Silver Hairline */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+}
+
+.league-tag { color: var(--nls-gold-solid); font-size: 0.7rem; margin-bottom: 10px; display: block; }
+.card-title { font-size: 0.95rem; margin-bottom: 20px; color: var(--text-white); }
+
+/* --- BUTTONS --- */
+.btn-gold-shiny {
+    background: var(--nls-gold-metallic); color: #000 !important;
+    padding: 15px; border-radius: 8px; text-decoration: none;
+    display: block; width: 100%; text-align: center; font-weight: 900;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-size: 0.75rem;
+}
+
+.btn-silver-outline {
+    background: transparent; border: 1px solid var(--nls-silver-accent);
+    color: var(--nls-silver-accent) !important; padding: 12px; border-radius: 6px;
+    text-decoration: none; display: block; text-align: center; font-size: 0.6rem;
+    font-weight: bold;
+}
+
+/* --- MATCH CENTER --- */
+.score-block-premium {
+    background: var(--nls-gold-metallic); padding: 30px; border-radius: 15px;
+    text-align: center; color: #000; margin-bottom: 15px;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.2);
+}
+
+.card-title-dark { font-size: 1.1rem; margin-bottom: 15px; font-weight: 900; }
+
+.btn-dark-portal {
+    background: #000; color: #FFF !important; padding: 10px 20px;
+    border-radius: 6px; text-decoration: none; display: inline-block;
+    font-size: 0.7rem; font-weight: 900;
+}
+
+.logo-divider-center {
+    display: flex; justify-content: center; align-items: center; padding: 30px 0;
+}
+
+.divider-logo { width: 70px; border-radius: 50%; filter: drop-shadow(0 0 12px var(--nls-gold-solid)); }
+
+/* --- MEDIA & PODS --- */
+.coming-soon-title { font-size: 1rem; color: var(--text-white); }
+.coming-soon-tag { color: var(--nls-gold-solid); font-size: 1.1rem; margin: 10px 0; }
+.media-desc { font-size: 0.7rem; color: var(--nls-silver-accent); line-height: 1.5; margin-top: 10px; }
+.media-icon { font-size: 2.5rem; margin-bottom: 15px; filter: grayscale(100%) brightness(1.5); }
+
+/* --- HUB / MORE --- */
+.hub-category { color: var(--nls-gold-solid); font-size: 0.9rem; margin-bottom: 20px; }
+.hub-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.mission-text { font-size: 0.75rem; line-height: 1.6; margin-bottom: 25px; text-align: center; color: var(--nls-silver-accent); }
+.center-wrapper { display: flex; justify-content: center; }
+
+/* --- NAV --- */
 .bottom-nav {
-    position: fixed;
-    bottom: 0; left: 0; width: 100%; height: 90px;
-    background: rgba(10, 10, 10, 0.98);
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
-    display: flex; justify-content: space-around; align-items: center;
-    z-index: 1000;
+    position: fixed; bottom: 0; left: 0; width: 100%; height: 90px;
+    background: rgba(10, 10, 10, 0.98); border-top: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex; justify-content: space-around; align-items: center; z-index: 1000;
 }
 
-.nav-item { font-family: 'Montserrat', sans-serif; color: var(--nls-silver-accent); font-size: 0.6rem; font-weight: 900; text-transform: uppercase; text-align: center; }
+.nav-item { color: var(--nls-silver-accent); font-size: 0.55rem; text-align: center; opacity: 0.6; font-weight: bold; }
+.nav-item.active { color: var(--nls-gold-solid); opacity: 1; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+
+.partners-footer { text-align: center; padding-top: 30px; }
+.partners-image { width: 100%; max-width: 300px; filter: brightness(1.2); opacity: 0.8; }
+.hidden-landing { display: none; }
