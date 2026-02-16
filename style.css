@@ -8,8 +8,7 @@
     --nls-obsidian: #050505;
     --nls-gold: #D4AF37;
     --nls-gold-shiny: linear-gradient(135deg, #B8860B 0%, #D4AF37 30%, #FFF1A8 50%, #D4AF37 70%, #B8860B 100%);
-    --nls-glass: rgba(255, 255, 255, 0.03);
-    --nls-glass-border: rgba(212, 175, 55, 0.3);
+    --nls-glass-border: rgba(212, 175, 55, 0.4);
     --nls-silver: #A8A9AD;
 }
 
@@ -20,92 +19,77 @@ body, html {
     overflow-x: hidden;
 }
 
-/* --- LANDING PAGE --- */
+/* --- LANDING FIX --- */
 .welcome-text-elite {
-    font-family: 'NLS-Brand'; font-size: 2.2rem; font-weight: 900;
-    letter-spacing: 4px; line-height: 1.1; margin-bottom: 50px;
-    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+    font-size: 2.5rem; letter-spacing: 4px; font-weight: 900;
+    text-shadow: 0 4px 20px rgba(0,0,0,1); margin-bottom: 50px;
 }
-.gold-glow {
-    color: var(--nls-gold);
-    background: var(--nls-gold-shiny);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5));
-}
+.gold-glow { color: var(--nls-gold); filter: drop-shadow(0 0 10px var(--nls-gold)); }
 
-/* --- GLASS CARDS --- */
+/* --- GLASS MORPHISM CARDS --- */
 .glass-card {
-    background: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.01));
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
     border: 1px solid var(--nls-glass-border);
-    border-radius: 20px;
-    padding: 30px; margin-bottom: 25px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.7), inset 0 0 0 1px rgba(255,255,255,0.05);
+    border-radius: 20px; padding: 25px; margin-bottom: 25px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.8);
 }
 
-/* --- UNIFORM ELITE BUTTONS (Black Gold Glass Effect) --- */
+/* --- UNIFORM GLASS BUTTONS (No overlapping) --- */
 .btn-uniform {
-    position: relative;
     display: block; width: 100%; text-align: center;
-    padding: 18px; margin-top: 15px;
-    background: linear-gradient(135deg, #111 0%, #000 100%);
-    color: var(--nls-gold) !important;
-    font-family: 'NLS-Brand'; font-size: 0.85rem; font-weight: 900;
-    text-decoration: none; text-transform: uppercase;
-    border-radius: 12px;
+    padding: 20px; margin-bottom: 15px; /* Independent spacing */
+    background: rgba(0, 0, 0, 0.6);
     border: 1px solid var(--nls-gold);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-    overflow: hidden;
-    transition: 0.3s all;
+    color: var(--nls-gold) !important;
+    text-decoration: none; font-size: 0.9rem; font-weight: 900;
+    border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    transition: 0.3s;
 }
-/* The Silver/Gold Shine Overlay */
-.btn-uniform::after {
-    content: ''; position: absolute; top: -50%; left: -50%;
-    width: 200%; height: 200%;
-    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
-    transform: rotate(45deg); transition: 0.5s;
-}
-.btn-uniform:active { transform: scale(0.96); border-color: var(--nls-silver); }
+.btn-uniform:active { transform: scale(0.98); background: rgba(212, 175, 55, 0.1); }
 
-/* --- PODS HEXAGON AREA --- */
-.hex-container {
-    height: 300px; display: flex; justify-content: center; align-items: center;
-    background-image: radial-gradient(circle, var(--nls-glass-border) 1px, transparent 1px);
-    background-size: 30px 30px;
+/* --- MORE SECTION STACK --- */
+.more-stack { padding-bottom: 30px; }
+
+/* --- INSTAGRAM PREVIEW --- */
+.insta-preview-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px; }
+.insta-placeholder {
+    aspect-ratio: 1/1; background: #111; border: 1px solid #333;
+    border-radius: 10px; display: flex; align-items: flex-end; padding: 10px;
+    font-size: 0.6rem; color: var(--nls-silver);
 }
-.hexagon-main {
-    width: 180px; height: 200px;
-    background: var(--nls-obsidian);
-    border: 3px solid var(--nls-silver);
+
+/* --- PODCAST HEXAGON (Elite Glass Look) --- */
+.pods-glass-area {
+    height: 350px; display: flex; justify-content: center; align-items: center;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.05) 0%, transparent 70%);
+}
+.hex-shimmer {
+    width: 200px; height: 220px;
+    background: var(--nls-glass-border);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex; justify-content: center; align-items: center;
-    text-align: center; font-size: 0.8rem; color: var(--nls-gold);
-    box-shadow: 0 0 30px rgba(168, 169, 173, 0.4);
+    padding: 3px; /* The Silver Line */
 }
+.hexagon-inner {
+    width: 100%; height: 100%;
+    background: var(--nls-obsidian);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    display: flex; justify-content: center; align-items: center;
+    text-align: center;
+}
+.hex-text { color: var(--nls-gold); font-size: 0.8rem; line-height: 1.4; }
 
 /* --- NAVIGATION --- */
 .bottom-nav {
     position: fixed; bottom: 0; width: 100%; height: 90px;
-    background: rgba(5,5,5,0.98); backdrop-filter: blur(20px);
-    border-top: 1px solid var(--nls-glass-border);
-    display: flex; justify-content: space-around; align-items: center; z-index: 1000;
+    background: rgba(5,5,5,0.98); border-top: 1px solid var(--nls-glass-border);
+    display: flex; justify-content: space-around; align-items: center;
 }
 .nav-item { color: var(--nls-silver); font-size: 0.6rem; opacity: 0.5; }
-.nav-item.active { color: var(--nls-gold); opacity: 1; filter: drop-shadow(0 0 5px var(--nls-gold)); }
+.nav-item.active { color: var(--nls-gold); opacity: 1; }
 
-/* --- GLOBAL HEADERS --- */
-.brand-header {
-    font-size: 1.5rem; color: var(--nls-gold); letter-spacing: 2px;
-    margin-bottom: 30px; border-bottom: 1px solid var(--nls-glass-border);
-}
+.brand-header { font-size: 1.5rem; color: var(--nls-gold); border-bottom: 1px solid var(--nls-glass-border); padding-bottom: 10px; margin-bottom: 30px; }
 .logo-divider-elite { text-align: center; padding: 20px 0; }
 .divider-logo { width: 80px; border-radius: 50%; border: 2px solid var(--nls-gold); }
-.hub-btn-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-.mission-text-elite { font-size: 0.8rem; letter-spacing: 1px; color: var(--nls-silver); margin-bottom: 20px; }
-
-/* Splash Fixes */
-#splash-overlay { position: fixed; inset: 0; background: #000; z-index: 10000; display: flex; align-items: center; transition: 0.8s; }
-#splash-video { width: 100%; mix-blend-mode: screen; }
 .hidden-landing { opacity: 0; pointer-events: none; }
