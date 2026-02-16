@@ -1,20 +1,12 @@
-/* NLS APP: MASTER STYLESHEET 
-    Theme: Obsidian, Champagne Gold, & Brushed Silver
-    Target: High-End Academy Supporter Experience
-*/
+/* NLS MASTER CSS - REVERTED STRUCTURE WITH NEW BRANDING */
 
 :root {
-    /* Brand Colors extracted from official NLS logo */
     --nls-obsidian: #0A0A0A;
-    --nls-gold: #D4AF37; /* Champagne Gold */
+    --nls-gold: #D4AF37; /* Champagne Gold from Logo */
     --nls-gold-glow: rgba(212, 175, 55, 0.2);
     --nls-silver: #A8A9AD; /* Brushed Silver */
     --nls-white: #FFFFFF;
     --nls-muted: #707070;
-    
-    /* UI Dimensions */
-    --nav-height: 75px;
-    --safe-bottom: env(safe-area-inset-bottom);
 }
 
 * {
@@ -25,14 +17,13 @@
 body {
     background-color: var(--nls-obsidian);
     color: var(--nls-white);
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.5;
-    overflow-x: hidden;
 }
 
-/* --- HEADER & LOGO --- */
+/* HEADER */
 header {
     padding: 40px 20px 20px;
     text-align: center;
@@ -53,35 +44,7 @@ header {
     font-weight: 600;
 }
 
-/* --- TABS / LEAGUE NAVIGATION --- */
-.league-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    padding: 10px;
-    position: sticky;
-    top: 0;
-    background: var(--nls-obsidian);
-    z-index: 100;
-}
-
-.tab {
-    color: var(--nls-muted);
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    font-weight: 700;
-    padding: 10px 5px;
-    border-bottom: 2px solid transparent;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.tab.active {
-    color: var(--nls-gold);
-    border-bottom: 2px solid var(--nls-gold);
-}
-
-/* --- MATCH CENTER HEX GRID --- */
+/* MATCH CENTER GRID (Hexagons) */
 .match-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -98,17 +61,16 @@ header {
     border: 1px solid var(--nls-silver);
     clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-decoration: none;
     transition: 0.3s;
 }
 
-.team-card:active, .team-card:hover {
+.team-card:active {
     border-color: var(--nls-gold);
     background: var(--nls-gold-glow);
-    transform: scale(1.05);
+    transform: scale(0.95);
 }
 
 .team-card span {
@@ -120,59 +82,17 @@ header {
     text-transform: uppercase;
 }
 
-/* --- SOCIAL HUB / INSTAGRAM --- */
-.social-section {
-    padding: 20px;
-}
-
-.insta-toggle {
-    display: flex;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 30px;
-    padding: 5px;
-    margin-bottom: 20px;
-}
-
-.toggle-btn {
-    flex: 1;
-    background: none;
-    border: none;
-    color: var(--nls-muted);
-    padding: 10px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border-radius: 25px;
-}
-
-.toggle-btn.active {
-    background: var(--nls-gold);
-    color: var(--nls-obsidian);
-}
-
-.insta-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 5px;
-}
-
-.insta-placeholder {
-    aspect-ratio: 1 / 1;
-    background: #1a1a1a;
-    border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-/* --- BOTTOM NAVIGATION --- */
+/* NAVIGATION */
 nav.app-nav {
     position: fixed;
     bottom: 0;
     width: 100%;
-    height: calc(var(--nav-height) + var(--safe-bottom));
+    height: 75px;
     background: rgba(10, 10, 10, 0.98);
     backdrop-filter: blur(15px);
     border-top: 1px solid rgba(212, 175, 55, 0.3);
     display: flex;
     justify-content: space-around;
-    padding-bottom: var(--safe-bottom);
     z-index: 1000;
 }
 
@@ -183,9 +103,8 @@ nav.app-nav {
     justify-content: center;
     color: var(--nls-muted);
     text-decoration: none;
-    font-size: 0.6rem;
+    font-size: 0.65rem;
     font-weight: 700;
-    text-transform: uppercase;
     transition: 0.3s;
 }
 
@@ -198,5 +117,4 @@ nav.app-nav {
     margin-bottom: 4px;
 }
 
-/* --- UTILITY --- */
 .hidden { display: none; }
