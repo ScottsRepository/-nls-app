@@ -3,98 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>NLS App | Elevating the Standard</title>
+    <title>NLS App</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 
     <header>
-        <img src="logo.png" alt="NLS Logo" class="brand-logo">
+        <img src="assets/NLS Logo.jpeg" alt="NLS Logo" class="brand-logo">
         <div class="slogan">Elevating the Standard</div>
     </header>
 
-    <main id="match-center">
-        <nav class="league-tabs">
-            <div class="tab active" onclick="filterLeague('jpl')">JPL Elite</div>
-            <div class="tab" onclick="filterLeague('grassroots')">Sunday Squads</div>
-            <div class="tab" onclick="filterLeague('girls')">Girls Academy</div>
-        </nav>
-
+    <main id="main-content">
         <div class="match-grid">
-            <a href="#" class="team-card jpl"><span>U12 Warriors</span></a>
-            <a href="#" class="team-card jpl"><span>U14 Warriors</span></a>
-            <a href="#" class="team-card jpl"><span>U15 Warriors</span></a>
-            <a href="#" class="team-card jpl"><span>U16 JPL</span></a>
-
-            <a href="#" class="team-card grassroots hidden"><span>U11 Lions</span></a>
-            <a href="#" class="team-card grassroots hidden"><span>U12 Grey</span></a>
-            <a href="#" class="team-card grassroots hidden"><span>U13 Grey</span></a>
-            <a href="#" class="team-card grassroots hidden"><span>U15 Levels Y</span></a>
-            <a href="#" class="team-card grassroots hidden"><span>U16 Whites</span></a>
-
-            <a href="#" class="team-card girls hidden"><span>U11 Lionesses</span></a>
-            <a href="#" class="team-card girls hidden"><span>U12 Lionesses</span></a>
+            <a href="#" class="team-card"><span>U12 Warriors</span></a>
+            <a href="#" class="team-card"><span>U14 Warriors</span></a>
+            <a href="#" class="team-card"><span>U15 Warriors</span></a>
+            <a href="#" class="team-card"><span>U16 JPL</span></a>
+            
+            <a href="#" class="team-card"><span>U11 Lions</span></a>
+            <a href="#" class="team-card"><span>U12 Grey</span></a>
+            <a href="#" class="team-card"><span>U13 Grey</span></a>
+            <a href="#" class="team-card"><span>U15 Levels Y</span></a>
+            <a href="#" class="team-card"><span>U16 Whites</span></a>
+            
+            <a href="#" class="team-card"><span>U11 Lionesses</span></a>
+            <a href="#" class="team-card"><span>U12 Lionesses</span></a>
         </div>
     </main>
 
-    <section id="social-hub" class="hidden">
-        <div class="social-section">
-            <div class="insta-toggle">
-                <button class="toggle-btn active" onclick="switchInsta('main')">@newlevelsoccer_</button>
-                <button class="toggle-btn" onclick="switchInsta('girls')">@NLS_Girls</button>
-            </div>
-            
-            <div class="insta-grid">
-                <div class="insta-placeholder"></div>
-                <div class="insta-placeholder"></div>
-                <div class="insta-placeholder"></div>
-                <div class="insta-placeholder"></div>
-                <div class="insta-placeholder"></div>
-                <div class="insta-placeholder"></div>
-            </div>
-        </div>
-    </section>
-
     <nav class="app-nav">
-        <a href="#" class="nav-link active" onclick="showPage('match-center')">
+        <a href="#" class="nav-link active">
             <i class="fa-solid fa-circle-dot"></i>
             <span>Match Center</span>
         </a>
-        <a href="#" class="nav-link" onclick="showPage('results')">
+        <a href="#" class="nav-link">
             <i class="fa-solid fa-list-ol"></i>
             <span>Results</span>
         </a>
-        <a href="#" class="nav-link" onclick="showPage('social-hub')">
+        <a href="#" class="nav-link">
             <i class="fa-solid fa-hubspot"></i>
             <span>The Hub</span>
         </a>
     </nav>
 
-    <script>
-        function showPage(pageId) {
-            document.getElementById('match-center').classList.add('hidden');
-            document.getElementById('social-hub').classList.add('hidden');
-            document.getElementById(pageId).classList.remove('hidden');
-            
-            // Update Active Nav State
-            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-        }
-
-        function filterLeague(league) {
-            document.querySelectorAll('.team-card').forEach(card => card.classList.add('hidden'));
-            document.querySelectorAll('.' + league).forEach(card => card.classList.remove('hidden'));
-            
-            document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-        }
-
-        function switchInsta(account) {
-            document.querySelectorAll('.toggle-btn').forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            // Logic to swap iframe or feed source would go here
-        }
-    </script>
 </body>
 </html>
