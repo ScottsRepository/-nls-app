@@ -5,72 +5,102 @@
 }
 
 :root {
-    /* HIGH-CONTRAST PREMIUM PALETTE */
-    --nls-obsidian: #050505; /* Deeper Obsidian */
+    --nls-obsidian: #0A0A0A;
     --nls-gold-solid: #D4AF37;
-    /* SHINY GOLD GRADIENT: mimics light hitting a gold bar */
     --nls-gold-metallic: linear-gradient(135deg, #B8860B 0%, #D4AF37 25%, #FFF1A8 50%, #D4AF37 75%, #B8860B 100%);
-    --nls-silver-brushed: #A8A9AD;
-    --nls-card-glow: rgba(212, 175, 55, 0.08);
+    --nls-silver-accent: #A8A9AD;
+    --nls-card-bg: #161616;
     --text-white: #FFFFFF;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-body { 
+body, html { 
+    margin: 0; padding: 0;
+    width: 100%; height: 100%;
     background-color: var(--nls-obsidian); 
     color: var(--text-white);
     font-family: 'Open Sans', sans-serif;
     overflow-x: hidden;
 }
 
-h1, h2, h3, .brand-header {
-    font-family: 'NLS-Brand', sans-serif;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+/* --- FIXED SPLASH OVERLAY --- */
+#splash-overlay {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    background: #000;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 10000;
+    transition: opacity 0.8s ease;
 }
 
-/* SHINY HEADER EFFECT */
+.video-container {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+#splash-video {
+    width: 90%;
+    height: auto;
+    mix-blend-mode: screen;
+}
+
+.hidden-out { opacity: 0 !important; pointer-events: none !important; }
+
+/* --- LANDING PAGE --- */
+#landing-page {
+    position: fixed;
+    top: 0; left: 0; 
+    width: 100vw; height: 100vh;
+    background-image: url('assets/landing-hero.png');
+    background-position: center;
+    background-size: cover;
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    z-index: 9000;
+    transition: opacity 0.8s ease;
+}
+
+.hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1; }
+.landing-content { position: relative; z-index: 2; text-align: center; width: 100%; }
+.landing-logo { width: 130px; margin-bottom: 25px; border-radius: 12px; }
+.welcome-text { font-size: 1.2rem; margin-bottom: 40px; letter-spacing: 3px; font-family: 'NLS-Brand'; }
+.kickoff-image { width: 220px; cursor: pointer; }
+.hidden-landing { opacity: 0; pointer-events: none; }
+
+/* --- MAIN CONTENT & BUTTONS --- */
+#main-content { padding: 30px 20px 140px 20px; }
+
 .brand-header {
+    font-family: 'NLS-Brand';
     font-size: 1.3rem;
     color: var(--nls-gold-solid);
     border-bottom: 2px solid var(--nls-gold-solid);
     padding-bottom: 8px;
     margin-bottom: 30px;
     display: inline-block;
-    background: var(--nls-gold-metallic);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
 }
 
-/* CARDS WITH DEPTH & SILVER HAIRLINE */
 .automation-card, .about-card, .hub-card, .media-placeholder {
-    background: linear-gradient(145deg, #111111, #080808);
+    background: var(--nls-card-bg);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid rgba(168, 169, 173, 0.15); /* Silver accent */
-    box-shadow: 0 10px 40px rgba(0,0,0,0.6), inset 0 1px 1px rgba(255,255,255,0.05);
-    position: relative;
-    overflow: hidden;
+    border: 1px solid rgba(168, 169, 173, 0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
-/* SUBTLE OVERLAY FOR CARDS */
-.automation-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background: radial-gradient(circle at top left, var(--nls-card-glow), transparent);
-    pointer-events: none;
-}
-
-/* SHINY METALLIC BUTTONS */
 .btn-gold-full, .portal-btn, .score-block-gold {
     background: var(--nls-gold-metallic) !important;
     color: #000 !important;
     padding: 14px 20px;
-    font-family: 'NLS-Brand', sans-serif;
+    font-family: 'NLS-Brand';
     font-size: 0.8rem;
     border-radius: 8px;
     text-transform: uppercase;
@@ -78,68 +108,22 @@ h1, h2, h3, .brand-header {
     display: inline-block;
     width: 100%;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.3);
     font-weight: 900;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3), inset 0 -2px 0 rgba(0,0,0,0.2);
-    transition: all 0.2s ease;
-}
-
-.btn-gold-full:active {
-    transform: scale(0.97);
-    filter: brightness(1.2);
-}
-
-.btn-gold-small {
-    background: transparent;
-    border: 1px solid var(--nls-silver-brushed);
-    color: var(--nls-silver-brushed);
-    padding: 12px;
-    font-size: 0.6rem;
-    border-radius: 6px;
-    text-transform: uppercase;
-    font-family: 'NLS-Brand', sans-serif;
-    font-weight: bold;
-}
-
-.league-tag {
-    color: var(--nls-gold-solid);
-    font-size: 0.75rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-    display: block;
-}
-
-/* REFINED NAVIGATION */
-.bottom-nav {
-    position: fixed;
-    bottom: 0; left: 0; width: 100%; height: 90px;
-    background: rgba(5, 5, 5, 0.96);
-    backdrop-filter: blur(20px);
-    display: flex; justify-content: space-around; align-items: center;
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    z-index: 1000;
-}
-
-.nav-item { 
-    font-family: 'Montserrat', sans-serif; 
-    color: var(--nls-silver-brushed); 
-    font-size: 0.6rem; 
-    font-weight: 900; 
-    text-transform: uppercase; 
-    text-align: center; 
-    opacity: 0.5;
 }
 
 .nav-item.active { 
     color: var(--nls-gold-solid); 
-    opacity: 1;
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
 }
 
-/* SPLASH & LANDING */
-#splash-overlay { background: #000; }
-.hero-overlay { background: radial-gradient(circle, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.9) 100%); }
-.welcome-text { font-size: 1.2rem; letter-spacing: 4px; text-shadow: 0 2px 10px rgba(0,0,0,0.8); }
+.bottom-nav {
+    position: fixed;
+    bottom: 0; left: 0; width: 100%; height: 90px;
+    background: rgba(10, 10, 10, 0.98);
+    border-top: 1px solid rgba(212, 175, 55, 0.3);
+    display: flex; justify-content: space-around; align-items: center;
+    z-index: 1000;
+}
 
-.partners-image { max-width: 280px; width: 100%; margin: 20px auto; opacity: 0.8; filter: grayscale(20%); }
+.nav-item { font-family: 'Montserrat', sans-serif; color: var(--nls-silver-accent); font-size: 0.6rem; font-weight: 900; text-transform: uppercase; text-align: center; }
